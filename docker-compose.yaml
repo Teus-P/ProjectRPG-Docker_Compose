@@ -1,0 +1,42 @@
+version: '1'
+
+services:
+  ProjectRPG:
+    container_name: projectrpg
+    image: teuspolec/projectrpg
+    ports:
+      - "8080:8080"
+    networks:
+      - ProjectRPG-network
+    depends_on:
+      - mysqldb-server
+    restart: always
+
+  ProjectRPG_angular:
+    container_name: projectrpg_angular
+    image: teuspolec/projectrpg_angular
+    ports:
+      - "4200:80"
+    networks:
+      - ProjectRPG-network
+    depends_on:
+      - mysqldb-server
+    restart: always
+
+  mysqldb-server:
+    container_name: mysqldb-server
+    image: mysql
+    ports:
+      - 3306:3306
+    restart: always
+    environment:
+      MYSQL_DATABASE: projectrpg
+      MYSQL_USER: ProjectRPG
+      MYSQL_PASSWORD: ProjectRPG
+      MYSQL_ROOT_PASSWORD: ProjectRPG
+      MYSQL_ROOT_HOST: '%'
+    networks:
+      - ProjectRPG-network
+
+networks:
+  ProjectRPG-network:
