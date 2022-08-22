@@ -1,5 +1,3 @@
-version: '1'
-
 services:
   ProjectRPG:
     container_name: projectrpg
