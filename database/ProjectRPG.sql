@@ -246,7 +246,7 @@ CREATE TABLE `character_armor` (
 
 LOCK TABLES `character_armor` WRITE;
 /*!40000 ALTER TABLE `character_armor` DISABLE KEYS */;
-INSERT INTO `character_armor` VALUES (42,1),(42,3),(43,1),(43,3),(40,9),(40,1),(40,3),(41,1),(75,18),(77,1),(77,3),(78,18),(79,1),(37,18),(159,7),(159,1),(159,3),(158,7),(158,1),(158,3),(162,2),(162,3),(162,7),(162,8),(163,8),(163,2),(163,3);
+INSERT INTO `character_armor` VALUES (42,1),(42,3),(43,1),(43,3),(41,1),(75,18),(77,1),(77,3),(78,18),(79,1),(37,18),(159,7),(159,1),(159,3),(158,7),(158,1),(158,3),(162,2),(162,3),(162,7),(162,8),(163,8),(163,2),(163,3),(40,9),(40,1),(40,3);
 /*!40000 ALTER TABLE `character_armor` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -361,7 +361,7 @@ CREATE TABLE `character_condition` (
 
 LOCK TABLES `character_condition` WRITE;
 /*!40000 ALTER TABLE `character_condition` DISABLE KEYS */;
-INSERT INTO `character_condition` VALUES (90,1,40,1,1),(92,2,65,10,0);
+INSERT INTO `character_condition` VALUES (92,2,65,10,0);
 /*!40000 ALTER TABLE `character_condition` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -389,7 +389,7 @@ CREATE TABLE `character_creature_trait` (
 
 LOCK TABLES `character_creature_trait` WRITE;
 /*!40000 ALTER TABLE `character_creature_trait` DISABLE KEYS */;
-INSERT INTO `character_creature_trait` VALUES (13,'0',52,76),(14,NULL,52,83),(15,NULL,52,82),(16,'2',52,66),(17,'+6',52,80),(58,NULL,40,83),(119,'+9',70,80),(120,'+8',70,24),(121,NULL,70,74),(122,NULL,70,59),(123,'(Purpurowa Gorączka Mózgowa))',70,84),(124,'(Umiarkowane)',70,21),(125,'2',70,31),(126,NULL,70,36),(127,NULL,70,50),(128,NULL,70,85),(130,NULL,41,6),(155,NULL,65,62),(156,NULL,65,25),(157,NULL,65,56),(158,'Duży',65,57),(159,NULL,65,71),(160,'+8',65,9),(161,NULL,65,77),(162,NULL,65,42),(724,'x2 +7',75,66),(725,'(Pomniejsze)',75,21),(726,NULL,75,50),(727,NULL,75,2),(730,'(Pomniejsze)',77,21),(731,'+7',77,9),(732,'60',76,32),(733,'(Pomniejsze)',76,21),(734,'(Pomniejsze)',78,21),(771,'8+',55,24),(772,NULL,55,51),(773,'+8',55,38),(774,'(2)',55,31),(779,'(2)',31,31),(780,NULL,31,42),(781,NULL,31,7),(782,NULL,31,39),(788,'(Pomniejsze)',34,21),(789,'(Pomniejsze)',35,21),(790,NULL,35,62),(791,'(Pomniejsze)',37,21),(792,NULL,33,62),(793,'(Pomniejsze)',33,21),(822,NULL,161,19),(823,NULL,161,51),(824,NULL,161,73),(825,NULL,161,56),(826,'(Pomniejsze)',161,21),(827,'2',161,31),(828,NULL,161,50),(829,NULL,160,28),(830,'-10',160,76),(831,NULL,160,73),(832,'+5',160,9),(833,NULL,160,50),(834,NULL,160,42),(835,NULL,160,39),(836,'2',160,31);
+INSERT INTO `character_creature_trait` VALUES (13,'0',52,76),(14,NULL,52,83),(15,NULL,52,82),(16,'2',52,66),(17,'+6',52,80),(119,'+9',70,80),(120,'+8',70,24),(121,NULL,70,74),(122,NULL,70,59),(123,'(Purpurowa Gorączka Mózgowa))',70,84),(124,'(Umiarkowane)',70,21),(125,'2',70,31),(126,NULL,70,36),(127,NULL,70,50),(128,NULL,70,85),(130,NULL,41,6),(155,NULL,65,62),(156,NULL,65,25),(157,NULL,65,56),(158,'Duży',65,57),(159,NULL,65,71),(160,'+8',65,9),(161,NULL,65,77),(162,NULL,65,42),(724,'x2 +7',75,66),(725,'(Pomniejsze)',75,21),(726,NULL,75,50),(727,NULL,75,2),(730,'(Pomniejsze)',77,21),(731,'+7',77,9),(732,'60',76,32),(733,'(Pomniejsze)',76,21),(734,'(Pomniejsze)',78,21),(771,'8+',55,24),(772,NULL,55,51),(773,'+8',55,38),(774,'(2)',55,31),(779,'(2)',31,31),(780,NULL,31,42),(781,NULL,31,7),(782,NULL,31,39),(788,'(Pomniejsze)',34,21),(789,'(Pomniejsze)',35,21),(790,NULL,35,62),(791,'(Pomniejsze)',37,21),(792,NULL,33,62),(793,'(Pomniejsze)',33,21),(822,NULL,161,19),(823,NULL,161,51),(824,NULL,161,73),(825,NULL,161,56),(826,'(Pomniejsze)',161,21),(827,'2',161,31),(828,NULL,161,50),(829,NULL,160,28),(830,'-10',160,76),(831,NULL,160,73),(832,'+5',160,9),(833,NULL,160,50),(834,NULL,160,42),(835,NULL,160,39),(836,'2',160,31);
 /*!40000 ALTER TABLE `character_creature_trait` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -469,7 +469,7 @@ CREATE TABLE `character_spell` (
 
 LOCK TABLES `character_spell` WRITE;
 /*!40000 ALTER TABLE `character_spell` DISABLE KEYS */;
-INSERT INTO `character_spell` VALUES (40,3),(70,6),(70,5),(70,7),(70,9),(70,8),(68,3),(68,4),(68,1),(68,2);
+INSERT INTO `character_spell` VALUES (70,6),(70,5),(70,7),(70,9),(70,8),(68,3),(68,4),(68,1),(68,2);
 /*!40000 ALTER TABLE `character_spell` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -981,4 +981,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-01-23 14:09:22
+-- Dump completed on 2023-01-28 14:38:06
