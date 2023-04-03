@@ -23,20 +23,20 @@ DROP TABLE IF EXISTS `armor`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `armor` (
-                         `id` bigint NOT NULL AUTO_INCREMENT,
-                         `name` varchar(255) NOT NULL,
-                         `name_translation` varchar(255) NOT NULL,
-                         `armor_category_id` bigint NOT NULL,
-                         `encumbrance` varchar(255) DEFAULT NULL,
-                         `price` varchar(255) DEFAULT NULL,
-                         `availability_id` bigint NOT NULL,
-                         PRIMARY KEY (`id`),
-                         UNIQUE KEY `UK_piy227jvtb6tk5xv2p57mudtr` (`name`),
-                         UNIQUE KEY `UK_ox489vahmjb30xu37sq87an09` (`name_translation`),
-                         KEY `FKqkp6fd8qa836fixioj16a2k7i` (`armor_category_id`),
-                         KEY `FKb4hxxgvd03u8qqri0306tbhkp` (`availability_id`),
-                         CONSTRAINT `FKb4hxxgvd03u8qqri0306tbhkp` FOREIGN KEY (`availability_id`) REFERENCES `availability` (`id`),
-                         CONSTRAINT `FKqkp6fd8qa836fixioj16a2k7i` FOREIGN KEY (`armor_category_id`) REFERENCES `armor_category` (`id`)
+  `id` bigint NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) NOT NULL,
+  `name_translation` varchar(255) NOT NULL,
+  `armor_category_id` bigint NOT NULL,
+  `encumbrance` varchar(255) DEFAULT NULL,
+  `price` varchar(255) DEFAULT NULL,
+  `availability_id` bigint NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `UK_piy227jvtb6tk5xv2p57mudtr` (`name`),
+  UNIQUE KEY `UK_ox489vahmjb30xu37sq87an09` (`name_translation`),
+  KEY `FKqkp6fd8qa836fixioj16a2k7i` (`armor_category_id`),
+  KEY `FKb4hxxgvd03u8qqri0306tbhkp` (`availability_id`),
+  CONSTRAINT `FKb4hxxgvd03u8qqri0306tbhkp` FOREIGN KEY (`availability_id`) REFERENCES `availability` (`id`),
+  CONSTRAINT `FKqkp6fd8qa836fixioj16a2k7i` FOREIGN KEY (`armor_category_id`) REFERENCES `armor_category` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -58,12 +58,12 @@ DROP TABLE IF EXISTS `armor_armor_penalty`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `armor_armor_penalty` (
-                                       `armor_id` bigint NOT NULL,
-                                       `penalty_id` bigint NOT NULL,
-                                       KEY `FKmoa7xrktm62iqcf4yc3c5js8j` (`penalty_id`),
-                                       KEY `FK58tj6qeo2a8y6rbtrp6hae88` (`armor_id`),
-                                       CONSTRAINT `FK58tj6qeo2a8y6rbtrp6hae88` FOREIGN KEY (`armor_id`) REFERENCES `armor` (`id`),
-                                       CONSTRAINT `FKmoa7xrktm62iqcf4yc3c5js8j` FOREIGN KEY (`penalty_id`) REFERENCES `armor_penalty` (`id`)
+  `armor_id` bigint NOT NULL,
+  `penalty_id` bigint NOT NULL,
+  KEY `FKmoa7xrktm62iqcf4yc3c5js8j` (`penalty_id`),
+  KEY `FK58tj6qeo2a8y6rbtrp6hae88` (`armor_id`),
+  CONSTRAINT `FK58tj6qeo2a8y6rbtrp6hae88` FOREIGN KEY (`armor_id`) REFERENCES `armor` (`id`),
+  CONSTRAINT `FKmoa7xrktm62iqcf4yc3c5js8j` FOREIGN KEY (`penalty_id`) REFERENCES `armor_penalty` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -85,12 +85,12 @@ DROP TABLE IF EXISTS `armor_armor_quality`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `armor_armor_quality` (
-                                       `armor_id` bigint NOT NULL,
-                                       `quality_id` bigint NOT NULL,
-                                       KEY `FKmoco5u3g7amh7hv31trdkldda` (`quality_id`),
-                                       KEY `FKb7xb5j9diql6ojqry0yxrljcd` (`armor_id`),
-                                       CONSTRAINT `FKb7xb5j9diql6ojqry0yxrljcd` FOREIGN KEY (`armor_id`) REFERENCES `armor` (`id`),
-                                       CONSTRAINT `FKmoco5u3g7amh7hv31trdkldda` FOREIGN KEY (`quality_id`) REFERENCES `armor_quality` (`id`)
+  `armor_id` bigint NOT NULL,
+  `quality_id` bigint NOT NULL,
+  KEY `FKmoco5u3g7amh7hv31trdkldda` (`quality_id`),
+  KEY `FKb7xb5j9diql6ojqry0yxrljcd` (`armor_id`),
+  CONSTRAINT `FKb7xb5j9diql6ojqry0yxrljcd` FOREIGN KEY (`armor_id`) REFERENCES `armor` (`id`),
+  CONSTRAINT `FKmoco5u3g7amh7hv31trdkldda` FOREIGN KEY (`quality_id`) REFERENCES `armor_quality` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -112,15 +112,15 @@ DROP TABLE IF EXISTS `armor_body_localization`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `armor_body_localization` (
-                                           `id` bigint NOT NULL AUTO_INCREMENT,
-                                           `armor_points` int DEFAULT NULL,
-                                           `armor_id` bigint NOT NULL,
-                                           `body_localization_id` bigint NOT NULL,
-                                           PRIMARY KEY (`id`),
-                                           KEY `FK97wnwsegsxw8g7i932o0qvpox` (`armor_id`),
-                                           KEY `FKk9rypu2nmx6l2flq0er133cf9` (`body_localization_id`),
-                                           CONSTRAINT `FK97wnwsegsxw8g7i932o0qvpox` FOREIGN KEY (`armor_id`) REFERENCES `armor` (`id`),
-                                           CONSTRAINT `FKk9rypu2nmx6l2flq0er133cf9` FOREIGN KEY (`body_localization_id`) REFERENCES `body_localization` (`id`)
+  `id` bigint NOT NULL AUTO_INCREMENT,
+  `armor_points` int DEFAULT NULL,
+  `armor_id` bigint NOT NULL,
+  `body_localization_id` bigint NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `FK97wnwsegsxw8g7i932o0qvpox` (`armor_id`),
+  KEY `FKk9rypu2nmx6l2flq0er133cf9` (`body_localization_id`),
+  CONSTRAINT `FK97wnwsegsxw8g7i932o0qvpox` FOREIGN KEY (`armor_id`) REFERENCES `armor` (`id`),
+  CONSTRAINT `FKk9rypu2nmx6l2flq0er133cf9` FOREIGN KEY (`body_localization_id`) REFERENCES `body_localization` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=59 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -142,9 +142,9 @@ DROP TABLE IF EXISTS `armor_category`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `armor_category` (
-                                  `id` bigint NOT NULL AUTO_INCREMENT,
-                                  `name` varchar(255) DEFAULT NULL,
-                                  PRIMARY KEY (`id`)
+  `id` bigint NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -166,9 +166,9 @@ DROP TABLE IF EXISTS `armor_penalty`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `armor_penalty` (
-                                 `id` bigint NOT NULL AUTO_INCREMENT,
-                                 `name` varchar(255) DEFAULT NULL,
-                                 PRIMARY KEY (`id`)
+  `id` bigint NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -190,9 +190,9 @@ DROP TABLE IF EXISTS `armor_quality`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `armor_quality` (
-                                 `id` bigint NOT NULL AUTO_INCREMENT,
-                                 `name` varchar(255) DEFAULT NULL,
-                                 PRIMARY KEY (`id`)
+  `id` bigint NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -207,6 +207,175 @@ INSERT INTO `armor_quality` VALUES (1,'FLEXIBLE'),(2,'IMPENETRABLE'),(3,'PARTIAL
 UNLOCK TABLES;
 
 --
+-- Table structure for table `auth_group`
+--
+
+DROP TABLE IF EXISTS `auth_group`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `auth_group` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `name` varchar(150) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `name` (`name`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `auth_group`
+--
+
+LOCK TABLES `auth_group` WRITE;
+/*!40000 ALTER TABLE `auth_group` DISABLE KEYS */;
+/*!40000 ALTER TABLE `auth_group` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `auth_group_permissions`
+--
+
+DROP TABLE IF EXISTS `auth_group_permissions`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `auth_group_permissions` (
+  `id` bigint NOT NULL AUTO_INCREMENT,
+  `group_id` int NOT NULL,
+  `permission_id` int NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `auth_group_permissions_group_id_permission_id_0cd325b0_uniq` (`group_id`,`permission_id`),
+  KEY `auth_group_permissio_permission_id_84c5c92e_fk_auth_perm` (`permission_id`),
+  CONSTRAINT `auth_group_permissio_permission_id_84c5c92e_fk_auth_perm` FOREIGN KEY (`permission_id`) REFERENCES `auth_permission` (`id`),
+  CONSTRAINT `auth_group_permissions_group_id_b120cbf9_fk_auth_group_id` FOREIGN KEY (`group_id`) REFERENCES `auth_group` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `auth_group_permissions`
+--
+
+LOCK TABLES `auth_group_permissions` WRITE;
+/*!40000 ALTER TABLE `auth_group_permissions` DISABLE KEYS */;
+/*!40000 ALTER TABLE `auth_group_permissions` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `auth_permission`
+--
+
+DROP TABLE IF EXISTS `auth_permission`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `auth_permission` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) NOT NULL,
+  `content_type_id` int NOT NULL,
+  `codename` varchar(100) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `auth_permission_content_type_id_codename_01ab375a_uniq` (`content_type_id`,`codename`),
+  CONSTRAINT `auth_permission_content_type_id_2f476e4b_fk_django_co` FOREIGN KEY (`content_type_id`) REFERENCES `django_content_type` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `auth_permission`
+--
+
+LOCK TABLES `auth_permission` WRITE;
+/*!40000 ALTER TABLE `auth_permission` DISABLE KEYS */;
+INSERT INTO `auth_permission` VALUES (1,'Can add log entry',1,'add_logentry'),(2,'Can change log entry',1,'change_logentry'),(3,'Can delete log entry',1,'delete_logentry'),(4,'Can view log entry',1,'view_logentry'),(5,'Can add permission',2,'add_permission'),(6,'Can change permission',2,'change_permission'),(7,'Can delete permission',2,'delete_permission'),(8,'Can view permission',2,'view_permission'),(9,'Can add group',3,'add_group'),(10,'Can change group',3,'change_group'),(11,'Can delete group',3,'delete_group'),(12,'Can view group',3,'view_group'),(13,'Can add user',4,'add_user'),(14,'Can change user',4,'change_user'),(15,'Can delete user',4,'delete_user'),(16,'Can view user',4,'view_user'),(17,'Can add content type',5,'add_contenttype'),(18,'Can change content type',5,'change_contenttype'),(19,'Can delete content type',5,'delete_contenttype'),(20,'Can view content type',5,'view_contenttype'),(21,'Can add session',6,'add_session'),(22,'Can change session',6,'change_session'),(23,'Can delete session',6,'delete_session'),(24,'Can view session',6,'view_session');
+/*!40000 ALTER TABLE `auth_permission` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `auth_user`
+--
+
+DROP TABLE IF EXISTS `auth_user`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `auth_user` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `password` varchar(128) NOT NULL,
+  `last_login` datetime(6) DEFAULT NULL,
+  `is_superuser` tinyint(1) NOT NULL,
+  `username` varchar(150) NOT NULL,
+  `first_name` varchar(150) NOT NULL,
+  `last_name` varchar(150) NOT NULL,
+  `email` varchar(254) NOT NULL,
+  `is_staff` tinyint(1) NOT NULL,
+  `is_active` tinyint(1) NOT NULL,
+  `date_joined` datetime(6) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `username` (`username`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `auth_user`
+--
+
+LOCK TABLES `auth_user` WRITE;
+/*!40000 ALTER TABLE `auth_user` DISABLE KEYS */;
+/*!40000 ALTER TABLE `auth_user` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `auth_user_groups`
+--
+
+DROP TABLE IF EXISTS `auth_user_groups`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `auth_user_groups` (
+  `id` bigint NOT NULL AUTO_INCREMENT,
+  `user_id` int NOT NULL,
+  `group_id` int NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `auth_user_groups_user_id_group_id_94350c0c_uniq` (`user_id`,`group_id`),
+  KEY `auth_user_groups_group_id_97559544_fk_auth_group_id` (`group_id`),
+  CONSTRAINT `auth_user_groups_group_id_97559544_fk_auth_group_id` FOREIGN KEY (`group_id`) REFERENCES `auth_group` (`id`),
+  CONSTRAINT `auth_user_groups_user_id_6a12ed8b_fk_auth_user_id` FOREIGN KEY (`user_id`) REFERENCES `auth_user` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `auth_user_groups`
+--
+
+LOCK TABLES `auth_user_groups` WRITE;
+/*!40000 ALTER TABLE `auth_user_groups` DISABLE KEYS */;
+/*!40000 ALTER TABLE `auth_user_groups` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `auth_user_user_permissions`
+--
+
+DROP TABLE IF EXISTS `auth_user_user_permissions`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `auth_user_user_permissions` (
+  `id` bigint NOT NULL AUTO_INCREMENT,
+  `user_id` int NOT NULL,
+  `permission_id` int NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `auth_user_user_permissions_user_id_permission_id_14a6b632_uniq` (`user_id`,`permission_id`),
+  KEY `auth_user_user_permi_permission_id_1fbb5f2c_fk_auth_perm` (`permission_id`),
+  CONSTRAINT `auth_user_user_permi_permission_id_1fbb5f2c_fk_auth_perm` FOREIGN KEY (`permission_id`) REFERENCES `auth_permission` (`id`),
+  CONSTRAINT `auth_user_user_permissions_user_id_a95ead1b_fk_auth_user_id` FOREIGN KEY (`user_id`) REFERENCES `auth_user` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `auth_user_user_permissions`
+--
+
+LOCK TABLES `auth_user_user_permissions` WRITE;
+/*!40000 ALTER TABLE `auth_user_user_permissions` DISABLE KEYS */;
+/*!40000 ALTER TABLE `auth_user_user_permissions` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `availability`
 --
 
@@ -214,9 +383,9 @@ DROP TABLE IF EXISTS `availability`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `availability` (
-                                `id` bigint NOT NULL AUTO_INCREMENT,
-                                `name` varchar(255) DEFAULT NULL,
-                                PRIMARY KEY (`id`)
+  `id` bigint NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -238,9 +407,9 @@ DROP TABLE IF EXISTS `body_localization`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `body_localization` (
-                                     `id` bigint NOT NULL AUTO_INCREMENT,
-                                     `name` varchar(255) DEFAULT NULL,
-                                     PRIMARY KEY (`id`)
+  `id` bigint NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -262,10 +431,10 @@ DROP TABLE IF EXISTS `character_armor`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `character_armor` (
-                                   `character_id` bigint NOT NULL,
-                                   `armor_id` bigint NOT NULL,
-                                   KEY `FK1ny7jluu147hk2glittg9qi60` (`armor_id`),
-                                   CONSTRAINT `FK1ny7jluu147hk2glittg9qi60` FOREIGN KEY (`armor_id`) REFERENCES `armor` (`id`)
+  `character_id` bigint NOT NULL,
+  `armor_id` bigint NOT NULL,
+  KEY `FK1ny7jluu147hk2glittg9qi60` (`armor_id`),
+  CONSTRAINT `FK1ny7jluu147hk2glittg9qi60` FOREIGN KEY (`armor_id`) REFERENCES `armor` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -275,7 +444,7 @@ CREATE TABLE `character_armor` (
 
 LOCK TABLES `character_armor` WRITE;
 /*!40000 ALTER TABLE `character_armor` DISABLE KEYS */;
-INSERT INTO `character_armor` VALUES (188,15),(189,15),(162,6),(162,7),(162,8),(162,1),(162,3),(162,4),(163,1),(163,3),(163,4),(163,7),(191,16),(219,15),(220,15),(221,16),(316,15),(317,15),(318,15),(319,15),(320,15),(321,15),(322,15),(323,15),(324,15),(325,15),(326,15),(327,15),(328,15),(329,15),(330,15),(27,2),(29,4),(29,3),(29,1),(28,2);
+INSERT INTO `character_armor` VALUES (188,15),(189,15),(162,6),(162,7),(162,8),(162,1),(162,3),(162,4),(163,1),(163,3),(163,4),(163,7),(191,16),(219,15),(220,15),(221,16),(27,2),(29,4),(29,3),(29,1),(28,2),(383,7),(383,6),(383,8),(383,1),(383,3),(383,4),(41,8),(41,7),(41,6),(41,1),(41,3),(41,4);
 /*!40000 ALTER TABLE `character_armor` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -287,15 +456,15 @@ DROP TABLE IF EXISTS `character_body_localization`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `character_body_localization` (
-                                               `id` bigint NOT NULL AUTO_INCREMENT,
-                                               `armor_points` int DEFAULT NULL,
-                                               `body_localization_id` bigint NOT NULL,
-                                               `character_id` bigint NOT NULL,
-                                               `additional_armor_points` int DEFAULT NULL,
-                                               PRIMARY KEY (`id`),
-                                               KEY `FK551pb3grkxhj5my6y9pwqh5c7` (`body_localization_id`),
-                                               CONSTRAINT `FK551pb3grkxhj5my6y9pwqh5c7` FOREIGN KEY (`body_localization_id`) REFERENCES `body_localization` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4585 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `id` bigint NOT NULL AUTO_INCREMENT,
+  `armor_points` int DEFAULT NULL,
+  `body_localization_id` bigint NOT NULL,
+  `character_id` bigint NOT NULL,
+  `additional_armor_points` int DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `FK551pb3grkxhj5my6y9pwqh5c7` (`body_localization_id`),
+  CONSTRAINT `FK551pb3grkxhj5my6y9pwqh5c7` FOREIGN KEY (`body_localization_id`) REFERENCES `body_localization` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4921 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -304,7 +473,7 @@ CREATE TABLE `character_body_localization` (
 
 LOCK TABLES `character_body_localization` WRITE;
 /*!40000 ALTER TABLE `character_body_localization` DISABLE KEYS */;
-INSERT INTO `character_body_localization` VALUES (967,0,1,42,0),(968,0,2,42,0),(969,0,3,42,0),(970,0,4,42,0),(971,0,5,42,0),(972,0,6,42,0),(973,0,1,43,0),(974,0,2,43,0),(975,0,3,43,0),(976,0,4,43,0),(977,0,5,43,0),(978,0,6,43,0),(1249,0,1,27,0),(1250,0,2,27,0),(1251,0,3,27,0),(1252,1,4,27,0),(1253,0,5,27,0),(1254,0,6,27,0),(1255,0,1,26,0),(1256,0,2,26,0),(1257,0,3,26,0),(1258,0,4,26,0),(1259,0,5,26,0),(1260,0,6,26,0),(1267,0,1,30,0),(1268,0,2,30,0),(1269,0,3,30,0),(1270,0,4,30,0),(1271,0,5,30,0),(1272,0,6,30,0),(1273,0,1,28,0),(1274,0,2,28,0),(1275,0,3,28,0),(1276,1,4,28,0),(1277,0,5,28,0),(1278,0,6,28,0),(1777,0,1,52,0),(1778,0,2,52,0),(1779,0,3,52,0),(1780,0,4,52,0),(1781,0,5,52,0),(1782,0,6,52,0),(1885,0,1,40,0),(1886,0,2,40,0),(1887,0,3,40,0),(1888,0,4,40,0),(1889,0,5,40,0),(1890,0,6,40,0),(1927,0,1,70,0),(1928,0,2,70,0),(1929,0,3,70,0),(1930,0,4,70,0),(1931,0,5,70,0),(1932,0,6,70,0),(1933,0,1,68,0),(1934,0,2,68,0),(1935,0,3,68,0),(1936,0,4,68,0),(1937,0,5,68,0),(1938,0,6,68,0),(1987,0,1,41,0),(1988,0,2,41,0),(1989,0,3,41,0),(1990,0,4,41,0),(1991,0,5,41,0),(1992,0,6,41,0),(2023,0,1,65,0),(2024,0,2,65,0),(2025,0,3,65,0),(2026,0,4,65,0),(2027,0,5,65,0),(2028,0,6,65,0),(2377,0,1,54,0),(2378,0,2,54,0),(2379,0,3,54,0),(2380,0,4,54,0),(2381,0,5,54,0),(2382,0,6,54,0),(2773,0,1,25,0),(2774,0,2,25,0),(2775,0,3,25,0),(2776,0,4,25,0),(2777,0,5,25,0),(2778,0,6,25,0),(3121,1,1,29,0),(3122,1,2,29,0),(3123,1,3,29,0),(3124,1,4,29,0),(3125,1,5,29,0),(3126,1,6,29,0),(3271,0,1,55,0),(3272,0,2,55,0),(3273,0,3,55,0),(3274,0,4,55,0),(3275,0,5,55,0),(3276,0,6,55,0),(3325,0,1,33,0),(3326,0,2,33,0),(3327,0,3,33,0),(3328,0,4,33,0),(3329,0,5,33,0),(3330,0,6,33,0),(3427,0,1,159,0),(3428,0,2,159,0),(3429,0,3,159,0),(3430,0,4,159,0),(3431,0,5,159,0),(3432,0,6,159,0),(3433,0,1,158,0),(3434,0,2,158,0),(3435,0,3,158,0),(3436,0,4,158,0),(3437,0,5,158,0),(3438,0,6,158,0),(3463,0,1,161,0),(3464,0,2,161,0),(3465,0,3,161,0),(3466,0,4,161,0),(3467,0,5,161,0),(3468,0,6,161,0),(3469,0,1,160,0),(3470,0,2,160,0),(3471,0,3,160,0),(3472,0,4,160,0),(3473,0,5,160,0),(3474,0,6,160,0),(3475,3,1,162,0),(3476,3,2,162,0),(3477,3,3,162,0),(3478,3,4,162,0),(3479,3,5,162,0),(3480,3,6,162,0),(3481,1,1,163,0),(3482,3,2,163,0),(3483,3,3,163,0),(3484,3,4,163,0),(3485,1,5,163,0),(3486,1,6,163,0),(3751,1,1,188,0),(3752,1,2,188,0),(3753,1,3,188,0),(3754,1,4,188,0),(3755,1,5,188,0),(3756,1,6,188,0),(3757,1,1,189,0),(3758,1,2,189,0),(3759,1,3,189,0),(3760,1,4,189,0),(3761,1,5,189,0),(3762,1,6,189,0),(3769,2,1,191,0),(3770,2,2,191,0),(3771,2,3,191,0),(3772,2,4,191,0),(3773,2,5,191,0),(3774,2,6,191,0),(3913,1,1,219,0),(3914,1,3,219,0),(3915,1,2,219,0),(3916,1,4,219,0),(3917,1,6,219,0),(3918,1,5,219,0),(3919,1,1,220,0),(3920,1,3,220,0),(3921,1,2,220,0),(3922,1,4,220,0),(3923,1,6,220,0),(3924,1,5,220,0),(3925,2,1,221,0),(3926,2,3,221,0),(3927,2,2,221,0),(3928,2,4,221,0),(3929,2,6,221,0),(3930,2,5,221,0),(4495,1,1,316,0),(4496,1,3,316,0),(4497,1,2,316,0),(4498,1,4,316,0),(4499,1,6,316,0),(4500,1,5,316,0),(4501,1,1,317,0),(4502,1,3,317,0),(4503,1,2,317,0),(4504,1,4,317,0),(4505,1,6,317,0),(4506,1,5,317,0),(4507,1,1,318,0),(4508,1,3,318,0),(4509,1,2,318,0),(4510,1,4,318,0),(4511,1,6,318,0),(4512,1,5,318,0),(4513,1,1,319,0),(4514,1,3,319,0),(4515,1,2,319,0),(4516,1,4,319,0),(4517,1,6,319,0),(4518,1,5,319,0),(4519,1,1,320,0),(4520,1,3,320,0),(4521,1,2,320,0),(4522,1,4,320,0),(4523,1,6,320,0),(4524,1,5,320,0),(4525,1,1,321,0),(4526,1,3,321,0),(4527,1,2,321,0),(4528,1,4,321,0),(4529,1,6,321,0),(4530,1,5,321,0),(4531,1,1,322,0),(4532,1,3,322,0),(4533,1,2,322,0),(4534,1,4,322,0),(4535,1,6,322,0),(4536,1,5,322,0),(4537,1,1,323,0),(4538,1,3,323,0),(4539,1,2,323,0),(4540,1,4,323,0),(4541,1,6,323,0),(4542,1,5,323,0),(4543,1,1,324,0),(4544,1,3,324,0),(4545,1,2,324,0),(4546,1,4,324,0),(4547,1,6,324,0),(4548,1,5,324,0),(4549,1,1,325,0),(4550,1,3,325,0),(4551,1,2,325,0),(4552,1,4,325,0),(4553,1,6,325,0),(4554,1,5,325,0),(4555,1,1,326,0),(4556,1,3,326,0),(4557,1,2,326,0),(4558,1,4,326,0),(4559,1,6,326,0),(4560,1,5,326,0),(4561,1,1,327,0),(4562,1,3,327,0),(4563,1,2,327,0),(4564,1,4,327,0),(4565,1,6,327,0),(4566,1,5,327,0),(4567,1,1,328,0),(4568,1,3,328,0),(4569,1,2,328,0),(4570,1,4,328,0),(4571,1,6,328,0),(4572,1,5,328,0),(4573,1,1,329,0),(4574,1,3,329,0),(4575,1,2,329,0),(4576,1,4,329,0),(4577,1,6,329,0),(4578,1,5,329,0),(4579,1,1,330,0),(4580,1,3,330,0),(4581,1,2,330,0),(4582,1,4,330,0),(4583,1,6,330,0),(4584,1,5,330,0);
+INSERT INTO `character_body_localization` VALUES (967,0,1,42,0),(968,0,2,42,0),(969,0,3,42,0),(970,0,4,42,0),(971,0,5,42,0),(972,0,6,42,0),(973,0,1,43,0),(974,0,2,43,0),(975,0,3,43,0),(976,0,4,43,0),(977,0,5,43,0),(978,0,6,43,0),(1249,0,1,27,0),(1250,0,2,27,0),(1251,0,3,27,0),(1252,1,4,27,0),(1253,0,5,27,0),(1254,0,6,27,0),(1255,0,1,26,0),(1256,0,2,26,0),(1257,0,3,26,0),(1258,0,4,26,0),(1259,0,5,26,0),(1260,0,6,26,0),(1267,0,1,30,0),(1268,0,2,30,0),(1269,0,3,30,0),(1270,0,4,30,0),(1271,0,5,30,0),(1272,0,6,30,0),(1273,0,1,28,0),(1274,0,2,28,0),(1275,0,3,28,0),(1276,1,4,28,0),(1277,0,5,28,0),(1278,0,6,28,0),(1777,0,1,52,0),(1778,0,2,52,0),(1779,0,3,52,0),(1780,0,4,52,0),(1781,0,5,52,0),(1782,0,6,52,0),(1885,0,1,40,0),(1886,0,2,40,0),(1887,0,3,40,0),(1888,0,4,40,0),(1889,0,5,40,0),(1890,0,6,40,0),(1927,0,1,70,0),(1928,0,2,70,0),(1929,0,3,70,0),(1930,0,4,70,0),(1931,0,5,70,0),(1932,0,6,70,0),(1933,0,1,68,0),(1934,0,2,68,0),(1935,0,3,68,0),(1936,0,4,68,0),(1937,0,5,68,0),(1938,0,6,68,0),(1987,3,1,41,0),(1988,3,2,41,0),(1989,3,3,41,0),(1990,3,4,41,0),(1991,3,5,41,0),(1992,3,6,41,0),(2023,0,1,65,0),(2024,0,2,65,0),(2025,0,3,65,0),(2026,0,4,65,0),(2027,0,5,65,0),(2028,0,6,65,0),(2377,0,1,54,0),(2378,0,2,54,0),(2379,0,3,54,0),(2380,0,4,54,0),(2381,0,5,54,0),(2382,0,6,54,0),(2773,0,1,25,0),(2774,0,2,25,0),(2775,0,3,25,0),(2776,0,4,25,0),(2777,0,5,25,0),(2778,0,6,25,0),(3121,1,1,29,0),(3122,1,2,29,0),(3123,1,3,29,0),(3124,1,4,29,0),(3125,1,5,29,0),(3126,1,6,29,0),(3271,0,1,55,0),(3272,0,2,55,0),(3273,0,3,55,0),(3274,0,4,55,0),(3275,0,5,55,0),(3276,0,6,55,0),(3325,0,1,33,0),(3326,0,2,33,0),(3327,0,3,33,0),(3328,0,4,33,0),(3329,0,5,33,0),(3330,0,6,33,0),(3427,0,1,159,0),(3428,0,2,159,0),(3429,0,3,159,0),(3430,0,4,159,0),(3431,0,5,159,0),(3432,0,6,159,0),(3433,0,1,158,0),(3434,0,2,158,0),(3435,0,3,158,0),(3436,0,4,158,0),(3437,0,5,158,0),(3438,0,6,158,0),(3463,0,1,161,0),(3464,0,2,161,0),(3465,0,3,161,0),(3466,0,4,161,0),(3467,0,5,161,0),(3468,0,6,161,0),(3469,0,1,160,0),(3470,0,2,160,0),(3471,0,3,160,0),(3472,0,4,160,0),(3473,0,5,160,0),(3474,0,6,160,0),(3475,3,1,162,0),(3476,3,2,162,0),(3477,3,3,162,0),(3478,3,4,162,0),(3479,3,5,162,0),(3480,3,6,162,0),(3481,1,1,163,0),(3482,3,2,163,0),(3483,3,3,163,0),(3484,3,4,163,0),(3485,1,5,163,0),(3486,1,6,163,0),(3751,1,1,188,0),(3752,1,2,188,0),(3753,1,3,188,0),(3754,1,4,188,0),(3755,1,5,188,0),(3756,1,6,188,0),(3757,1,1,189,0),(3758,1,2,189,0),(3759,1,3,189,0),(3760,1,4,189,0),(3761,1,5,189,0),(3762,1,6,189,0),(3769,2,1,191,0),(3770,2,2,191,0),(3771,2,3,191,0),(3772,2,4,191,0),(3773,2,5,191,0),(3774,2,6,191,0),(3913,1,1,219,0),(3914,1,3,219,0),(3915,1,2,219,0),(3916,1,4,219,0),(3917,1,6,219,0),(3918,1,5,219,0),(3919,1,1,220,0),(3920,1,3,220,0),(3921,1,2,220,0),(3922,1,4,220,0),(3923,1,6,220,0),(3924,1,5,220,0),(3925,2,1,221,0),(3926,2,3,221,0),(3927,2,2,221,0),(3928,2,4,221,0),(3929,2,6,221,0),(3930,2,5,221,0),(4897,3,1,383,0),(4898,3,2,383,0),(4899,3,3,383,0),(4900,3,4,383,0),(4901,3,5,383,0),(4902,3,6,383,0),(4903,0,1,384,0),(4904,0,3,384,0),(4905,0,2,384,0),(4906,0,4,384,0),(4907,0,6,384,0),(4908,0,5,384,0),(4909,0,1,385,0),(4910,0,3,385,0),(4911,0,2,385,0),(4912,0,4,385,0),(4913,0,6,385,0),(4914,0,5,385,0);
 /*!40000 ALTER TABLE `character_body_localization` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -316,16 +485,16 @@ DROP TABLE IF EXISTS `character_body_localization_injury`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `character_body_localization_injury` (
-                                                      `id` bigint NOT NULL AUTO_INCREMENT,
-                                                      `value` int DEFAULT NULL,
-                                                      `character_body_localization_id` bigint NOT NULL,
-                                                      `injury_id` bigint NOT NULL,
-                                                      PRIMARY KEY (`id`),
-                                                      KEY `FKd2tsdu9div40x5qqjf4dycwx6` (`character_body_localization_id`),
-                                                      KEY `FK3t3u24822avxi3mlvv1i61dj7` (`injury_id`),
-                                                      CONSTRAINT `FK3t3u24822avxi3mlvv1i61dj7` FOREIGN KEY (`injury_id`) REFERENCES `injury` (`id`),
-                                                      CONSTRAINT `FKd2tsdu9div40x5qqjf4dycwx6` FOREIGN KEY (`character_body_localization_id`) REFERENCES `character_body_localization` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `id` bigint NOT NULL AUTO_INCREMENT,
+  `value` int DEFAULT NULL,
+  `character_body_localization_id` bigint NOT NULL,
+  `injury_id` bigint NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `FKd2tsdu9div40x5qqjf4dycwx6` (`character_body_localization_id`),
+  KEY `FK3t3u24822avxi3mlvv1i61dj7` (`injury_id`),
+  CONSTRAINT `FK3t3u24822avxi3mlvv1i61dj7` FOREIGN KEY (`injury_id`) REFERENCES `injury` (`id`),
+  CONSTRAINT `FKd2tsdu9div40x5qqjf4dycwx6` FOREIGN KEY (`character_body_localization_id`) REFERENCES `character_body_localization` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -334,6 +503,7 @@ CREATE TABLE `character_body_localization_injury` (
 
 LOCK TABLES `character_body_localization_injury` WRITE;
 /*!40000 ALTER TABLE `character_body_localization_injury` DISABLE KEYS */;
+INSERT INTO `character_body_localization_injury` VALUES (15,1,1256,1),(16,1,1257,8);
 /*!40000 ALTER TABLE `character_body_localization_injury` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -345,14 +515,14 @@ DROP TABLE IF EXISTS `character_characteristic`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `character_characteristic` (
-                                            `id` bigint NOT NULL AUTO_INCREMENT,
-                                            `value` int DEFAULT NULL,
-                                            `character_id` bigint NOT NULL,
-                                            `characteristic_id` bigint NOT NULL,
-                                            PRIMARY KEY (`id`),
-                                            KEY `FK5vh9hej9skk5btevxcahcptf9` (`characteristic_id`),
-                                            CONSTRAINT `FK5vh9hej9skk5btevxcahcptf9` FOREIGN KEY (`characteristic_id`) REFERENCES `characteristic` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9325 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `id` bigint NOT NULL AUTO_INCREMENT,
+  `value` int DEFAULT NULL,
+  `character_id` bigint NOT NULL,
+  `characteristic_id` bigint NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `FK5vh9hej9skk5btevxcahcptf9` (`characteristic_id`),
+  CONSTRAINT `FK5vh9hej9skk5btevxcahcptf9` FOREIGN KEY (`characteristic_id`) REFERENCES `characteristic` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=9997 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -361,7 +531,7 @@ CREATE TABLE `character_characteristic` (
 
 LOCK TABLES `character_characteristic` WRITE;
 /*!40000 ALTER TABLE `character_characteristic` DISABLE KEYS */;
-INSERT INTO `character_characteristic` VALUES (1933,4,42,12),(1934,58,42,1),(1935,44,42,2),(1936,55,42,3),(1937,48,42,4),(1938,42,42,5),(1939,43,42,6),(1940,39,42,7),(1941,30,42,8),(1942,40,42,9),(1943,40,42,10),(1944,15,42,11),(1945,4,43,12),(1946,42,43,1),(1947,23,43,2),(1948,44,43,3),(1949,39,43,4),(1950,45,43,5),(1951,46,43,6),(1952,24,43,7),(1953,34,43,8),(1954,45,43,9),(1955,24,43,10),(1956,12,43,11),(2497,3,27,12),(2498,46,27,1),(2499,23,27,2),(2500,40,27,3),(2501,50,27,4),(2502,31,27,5),(2503,24,27,6),(2504,45,27,7),(2505,29,27,8),(2506,54,27,9),(2507,14,27,10),(2508,19,27,11),(2509,3,26,12),(2510,60,26,1),(2511,34,26,2),(2512,40,26,3),(2513,60,26,4),(2514,30,26,5),(2515,19,26,6),(2516,40,26,7),(2517,32,26,8),(2518,61,26,9),(2519,22,26,10),(2520,34,26,11),(2533,4,30,12),(2534,27,30,1),(2535,25,30,2),(2536,26,30,3),(2537,31,30,4),(2538,28,30,5),(2539,41,30,6),(2540,27,30,7),(2541,38,30,8),(2542,31,30,9),(2543,46,30,10),(2544,11,30,11),(2545,3,28,12),(2546,14,28,1),(2547,47,28,2),(2548,22,28,3),(2549,33,28,4),(2550,29,28,5),(2551,32,28,6),(2552,70,28,7),(2553,27,28,8),(2554,45,28,9),(2555,60,28,10),(2556,8,28,11),(3553,4,52,12),(3554,45,52,1),(3555,0,52,2),(3556,40,52,3),(3557,40,52,4),(3558,0,52,5),(3559,20,52,6),(3560,10,52,7),(3561,0,52,8),(3562,0,52,9),(3563,0,52,10),(3564,20,52,11),(3769,4,40,12),(3770,48,40,1),(3771,58,40,2),(3772,51,40,3),(3773,55,40,4),(3774,35,40,5),(3775,57,40,6),(3776,35,40,7),(3777,30,40,8),(3778,34,40,9),(3779,27,40,10),(3780,18,40,11),(3853,4,70,12),(3854,45,70,1),(3855,47,70,2),(3856,42,70,3),(3857,40,70,4),(3858,58,70,5),(3859,47,70,6),(3860,39,70,7),(3861,59,70,8),(3862,60,70,9),(3863,51,70,10),(3864,22,70,11),(3865,4,68,12),(3866,45,68,1),(3867,47,68,2),(3868,42,68,3),(3869,40,68,4),(3870,58,68,5),(3871,47,68,6),(3872,39,68,7),(3873,59,68,8),(3874,60,68,9),(3875,51,68,10),(3876,18,68,11),(3973,4,41,12),(3974,45,41,1),(3975,30,41,2),(3976,40,41,3),(3977,40,41,4),(3978,25,41,5),(3979,35,41,6),(3980,30,41,7),(3981,25,41,8),(3982,30,41,9),(3983,25,41,10),(3984,15,41,11),(4045,6,65,12),(4046,30,65,1),(4047,15,65,2),(4048,55,65,3),(4049,45,65,4),(4050,10,65,5),(4051,15,65,6),(4052,15,65,7),(4053,10,65,8),(4054,20,65,9),(4055,5,65,10),(4056,30,65,11),(4753,4,54,12),(4754,57,54,1),(4755,28,54,2),(4756,54,54,3),(4757,52,54,4),(4758,41,54,5),(4759,33,54,6),(4760,29,54,7),(4761,23,54,8),(4762,30,54,9),(4763,27,54,10),(4764,18,54,11),(6241,4,29,12),(6242,40,29,1),(6243,30,29,2),(6244,35,29,3),(6245,50,29,4),(6246,39,29,5),(6247,40,29,6),(6248,36,29,7),(6249,23,29,8),(6250,40,29,9),(6251,34,29,10),(6252,12,29,11),(6541,4,55,12),(6542,39,55,1),(6543,49,55,2),(6544,50,55,3),(6545,39,55,4),(6546,39,55,5),(6547,59,55,6),(6548,39,55,7),(6549,49,55,8),(6550,99,55,9),(6551,19,55,10),(6552,19,55,11),(6649,4,33,12),(6650,45,33,1),(6651,30,33,2),(6652,55,33,3),(6653,35,33,4),(6654,30,33,5),(6655,40,33,6),(6656,30,33,7),(6657,30,33,8),(6658,30,33,9),(6659,30,33,10),(6660,12,33,11),(6853,4,159,12),(6854,40,159,1),(6855,43,159,2),(6856,40,159,3),(6857,40,159,4),(6858,42,159,5),(6859,34,159,6),(6860,29,159,7),(6861,41,159,8),(6862,33,159,9),(6863,35,159,10),(6864,15,159,11),(6865,4,158,12),(6866,40,158,1),(6867,43,158,2),(6868,40,158,3),(6869,50,158,4),(6870,42,158,5),(6871,34,158,6),(6872,29,158,7),(6873,41,158,8),(6874,33,158,9),(6875,35,158,10),(6876,16,158,11),(6925,4,161,12),(6926,45,161,1),(6927,0,161,2),(6928,40,161,3),(6929,40,161,4),(6930,5,161,5),(6931,10,161,6),(6932,15,161,7),(6933,0,161,8),(6934,0,161,9),(6935,0,161,10),(6936,16,161,11),(6937,4,160,12),(6938,60,160,1),(6939,0,160,2),(6940,45,160,3),(6941,40,160,4),(6942,40,160,5),(6943,35,160,6),(6944,25,160,7),(6945,20,160,8),(6946,40,160,9),(6947,5,160,10),(6948,16,160,11),(6949,4,162,12),(6950,45,162,1),(6951,43,162,2),(6952,51,162,3),(6953,30,162,4),(6954,40,162,5),(6955,28,162,6),(6956,27,162,7),(6957,30,162,8),(6958,31,162,9),(6959,43,162,10),(6960,14,162,11),(6961,4,163,12),(6962,35,163,1),(6963,30,163,2),(6964,40,163,3),(6965,30,163,4),(6966,30,163,5),(6967,30,163,6),(6968,35,163,7),(6969,30,163,8),(6970,30,163,9),(6971,25,163,10),(6972,13,163,11),(7561,4,25,12),(7562,26,25,1),(7563,27,25,2),(7564,30,25,3),(7565,30,25,4),(7566,28,25,5),(7567,29,25,6),(7568,52,25,7),(7569,65,25,8),(7570,37,25,9),(7571,28,25,10),(7572,12,25,11),(7657,4,188,12),(7658,45,188,1),(7659,30,188,2),(7660,35,188,3),(7661,45,188,4),(7662,30,188,5),(7663,35,188,6),(7664,25,188,7),(7665,25,188,8),(7666,30,188,9),(7667,25,188,10),(7668,14,188,11),(7669,4,189,12),(7670,35,189,1),(7671,30,189,2),(7672,30,189,3),(7673,35,189,4),(7674,30,189,5),(7675,35,189,6),(7676,25,189,7),(7677,25,189,8),(7678,35,189,9),(7679,25,189,10),(7680,12,189,11),(7693,6,191,12),(7694,65,191,1),(7695,25,191,2),(7696,55,191,3),(7697,55,191,4),(7698,20,191,5),(7699,35,191,6),(7700,25,191,7),(7701,20,191,8),(7702,30,191,9),(7703,15,191,10),(7704,30,191,11),(7981,4,219,12),(7982,25,219,1),(7983,40,219,2),(7984,35,219,3),(7985,35,219,4),(7986,20,219,5),(7987,35,219,6),(7988,40,219,7),(7989,30,219,8),(7990,20,219,9),(7991,20,219,10),(7992,14,219,11),(7993,4,220,12),(7994,55,220,1),(7995,0,220,2),(7996,35,220,3),(7997,40,220,4),(7998,30,220,5),(7999,55,220,6),(8000,0,220,7),(8001,15,220,8),(8002,15,220,9),(8003,0,220,10),(8004,12,220,11),(8005,4,221,12),(8006,45,221,1),(8007,60,221,2),(8008,40,221,3),(8009,40,221,4),(8010,30,221,5),(8011,35,221,6),(8012,40,221,7),(8013,30,221,8),(8014,50,221,9),(8015,25,221,10),(8016,21,221,11),(9145,4,316,12),(9146,25,316,1),(9147,40,316,2),(9148,35,316,3),(9149,35,316,4),(9150,20,316,5),(9151,35,316,6),(9152,40,316,7),(9153,30,316,8),(9154,20,316,9),(9155,20,316,10),(9156,14,316,11),(9157,4,317,12),(9158,25,317,1),(9159,40,317,2),(9160,35,317,3),(9161,35,317,4),(9162,20,317,5),(9163,35,317,6),(9164,40,317,7),(9165,30,317,8),(9166,20,317,9),(9167,20,317,10),(9168,14,317,11),(9169,4,318,12),(9170,25,318,1),(9171,40,318,2),(9172,35,318,3),(9173,35,318,4),(9174,20,318,5),(9175,35,318,6),(9176,40,318,7),(9177,30,318,8),(9178,20,318,9),(9179,20,318,10),(9180,14,318,11),(9181,4,319,12),(9182,25,319,1),(9183,40,319,2),(9184,35,319,3),(9185,35,319,4),(9186,20,319,5),(9187,35,319,6),(9188,40,319,7),(9189,30,319,8),(9190,20,319,9),(9191,20,319,10),(9192,14,319,11),(9193,4,320,12),(9194,25,320,1),(9195,40,320,2),(9196,35,320,3),(9197,35,320,4),(9198,20,320,5),(9199,35,320,6),(9200,40,320,7),(9201,30,320,8),(9202,20,320,9),(9203,20,320,10),(9204,14,320,11),(9205,4,321,12),(9206,25,321,1),(9207,40,321,2),(9208,35,321,3),(9209,35,321,4),(9210,20,321,5),(9211,35,321,6),(9212,40,321,7),(9213,30,321,8),(9214,20,321,9),(9215,20,321,10),(9216,14,321,11),(9217,4,322,12),(9218,25,322,1),(9219,40,322,2),(9220,35,322,3),(9221,35,322,4),(9222,20,322,5),(9223,35,322,6),(9224,40,322,7),(9225,30,322,8),(9226,20,322,9),(9227,20,322,10),(9228,14,322,11),(9229,4,323,12),(9230,25,323,1),(9231,40,323,2),(9232,35,323,3),(9233,35,323,4),(9234,20,323,5),(9235,35,323,6),(9236,40,323,7),(9237,30,323,8),(9238,20,323,9),(9239,20,323,10),(9240,14,323,11),(9241,4,324,12),(9242,25,324,1),(9243,40,324,2),(9244,35,324,3),(9245,35,324,4),(9246,20,324,5),(9247,35,324,6),(9248,40,324,7),(9249,30,324,8),(9250,20,324,9),(9251,20,324,10),(9252,14,324,11),(9253,4,325,12),(9254,25,325,1),(9255,40,325,2),(9256,35,325,3),(9257,35,325,4),(9258,20,325,5),(9259,35,325,6),(9260,40,325,7),(9261,30,325,8),(9262,20,325,9),(9263,20,325,10),(9264,14,325,11),(9265,4,326,12),(9266,25,326,1),(9267,40,326,2),(9268,35,326,3),(9269,35,326,4),(9270,20,326,5),(9271,35,326,6),(9272,40,326,7),(9273,30,326,8),(9274,20,326,9),(9275,20,326,10),(9276,14,326,11),(9277,4,327,12),(9278,25,327,1),(9279,40,327,2),(9280,35,327,3),(9281,35,327,4),(9282,20,327,5),(9283,35,327,6),(9284,40,327,7),(9285,30,327,8),(9286,20,327,9),(9287,20,327,10),(9288,14,327,11),(9289,4,328,12),(9290,25,328,1),(9291,40,328,2),(9292,35,328,3),(9293,35,328,4),(9294,20,328,5),(9295,35,328,6),(9296,40,328,7),(9297,30,328,8),(9298,20,328,9),(9299,20,328,10),(9300,14,328,11),(9301,4,329,12),(9302,25,329,1),(9303,40,329,2),(9304,35,329,3),(9305,35,329,4),(9306,20,329,5),(9307,35,329,6),(9308,40,329,7),(9309,30,329,8),(9310,20,329,9),(9311,20,329,10),(9312,14,329,11),(9313,4,330,12),(9314,25,330,1),(9315,40,330,2),(9316,35,330,3),(9317,35,330,4),(9318,20,330,5),(9319,35,330,6),(9320,40,330,7),(9321,30,330,8),(9322,20,330,9),(9323,20,330,10),(9324,14,330,11);
+INSERT INTO `character_characteristic` VALUES (1933,4,42,12),(1934,58,42,1),(1935,44,42,2),(1936,55,42,3),(1937,48,42,4),(1938,42,42,5),(1939,43,42,6),(1940,39,42,7),(1941,30,42,8),(1942,40,42,9),(1943,40,42,10),(1944,15,42,11),(1945,4,43,12),(1946,42,43,1),(1947,23,43,2),(1948,44,43,3),(1949,39,43,4),(1950,45,43,5),(1951,46,43,6),(1952,24,43,7),(1953,34,43,8),(1954,45,43,9),(1955,24,43,10),(1956,12,43,11),(2497,3,27,12),(2498,46,27,1),(2499,23,27,2),(2500,40,27,3),(2501,50,27,4),(2502,31,27,5),(2503,24,27,6),(2504,45,27,7),(2505,29,27,8),(2506,54,27,9),(2507,14,27,10),(2508,19,27,11),(2509,3,26,12),(2510,60,26,1),(2511,34,26,2),(2512,40,26,3),(2513,60,26,4),(2514,30,26,5),(2515,19,26,6),(2516,40,26,7),(2517,32,26,8),(2518,65,26,9),(2519,22,26,10),(2520,34,26,11),(2533,4,30,12),(2534,27,30,1),(2535,25,30,2),(2536,26,30,3),(2537,31,30,4),(2538,28,30,5),(2539,41,30,6),(2540,27,30,7),(2541,38,30,8),(2542,31,30,9),(2543,46,30,10),(2544,11,30,11),(2545,3,28,12),(2546,14,28,1),(2547,47,28,2),(2548,22,28,3),(2549,33,28,4),(2550,29,28,5),(2551,32,28,6),(2552,70,28,7),(2553,27,28,8),(2554,45,28,9),(2555,60,28,10),(2556,8,28,11),(3553,4,52,12),(3554,45,52,1),(3555,0,52,2),(3556,40,52,3),(3557,40,52,4),(3558,0,52,5),(3559,20,52,6),(3560,10,52,7),(3561,0,52,8),(3562,0,52,9),(3563,0,52,10),(3564,20,52,11),(3769,4,40,12),(3770,48,40,1),(3771,58,40,2),(3772,51,40,3),(3773,55,40,4),(3774,35,40,5),(3775,57,40,6),(3776,35,40,7),(3777,30,40,8),(3778,34,40,9),(3779,27,40,10),(3780,18,40,11),(3853,4,70,12),(3854,45,70,1),(3855,47,70,2),(3856,42,70,3),(3857,40,70,4),(3858,58,70,5),(3859,47,70,6),(3860,39,70,7),(3861,59,70,8),(3862,60,70,9),(3863,51,70,10),(3864,22,70,11),(3865,4,68,12),(3866,45,68,1),(3867,47,68,2),(3868,42,68,3),(3869,40,68,4),(3870,58,68,5),(3871,47,68,6),(3872,39,68,7),(3873,59,68,8),(3874,60,68,9),(3875,51,68,10),(3876,18,68,11),(3973,4,41,12),(3974,45,41,1),(3975,30,41,2),(3976,40,41,3),(3977,40,41,4),(3978,25,41,5),(3979,35,41,6),(3980,30,41,7),(3981,25,41,8),(3982,30,41,9),(3983,25,41,10),(3984,15,41,11),(4045,6,65,12),(4046,30,65,1),(4047,15,65,2),(4048,55,65,3),(4049,45,65,4),(4050,10,65,5),(4051,15,65,6),(4052,15,65,7),(4053,10,65,8),(4054,20,65,9),(4055,5,65,10),(4056,30,65,11),(4753,4,54,12),(4754,57,54,1),(4755,28,54,2),(4756,54,54,3),(4757,52,54,4),(4758,41,54,5),(4759,33,54,6),(4760,29,54,7),(4761,23,54,8),(4762,30,54,9),(4763,27,54,10),(4764,18,54,11),(6241,4,29,12),(6242,40,29,1),(6243,30,29,2),(6244,35,29,3),(6245,50,29,4),(6246,39,29,5),(6247,40,29,6),(6248,36,29,7),(6249,23,29,8),(6250,40,29,9),(6251,34,29,10),(6252,12,29,11),(6541,4,55,12),(6542,39,55,1),(6543,49,55,2),(6544,50,55,3),(6545,39,55,4),(6546,39,55,5),(6547,59,55,6),(6548,39,55,7),(6549,49,55,8),(6550,99,55,9),(6551,19,55,10),(6552,19,55,11),(6649,4,33,12),(6650,45,33,1),(6651,30,33,2),(6652,55,33,3),(6653,35,33,4),(6654,30,33,5),(6655,40,33,6),(6656,30,33,7),(6657,30,33,8),(6658,30,33,9),(6659,30,33,10),(6660,12,33,11),(6853,4,159,12),(6854,40,159,1),(6855,43,159,2),(6856,40,159,3),(6857,40,159,4),(6858,42,159,5),(6859,34,159,6),(6860,29,159,7),(6861,41,159,8),(6862,33,159,9),(6863,35,159,10),(6864,15,159,11),(6865,4,158,12),(6866,40,158,1),(6867,43,158,2),(6868,40,158,3),(6869,50,158,4),(6870,42,158,5),(6871,34,158,6),(6872,29,158,7),(6873,41,158,8),(6874,33,158,9),(6875,35,158,10),(6876,16,158,11),(6925,4,161,12),(6926,45,161,1),(6927,0,161,2),(6928,40,161,3),(6929,40,161,4),(6930,5,161,5),(6931,10,161,6),(6932,15,161,7),(6933,0,161,8),(6934,0,161,9),(6935,0,161,10),(6936,16,161,11),(6937,4,160,12),(6938,60,160,1),(6939,0,160,2),(6940,45,160,3),(6941,40,160,4),(6942,40,160,5),(6943,35,160,6),(6944,25,160,7),(6945,20,160,8),(6946,40,160,9),(6947,5,160,10),(6948,16,160,11),(6949,4,162,12),(6950,45,162,1),(6951,43,162,2),(6952,51,162,3),(6953,30,162,4),(6954,40,162,5),(6955,28,162,6),(6956,27,162,7),(6957,30,162,8),(6958,31,162,9),(6959,43,162,10),(6960,14,162,11),(6961,4,163,12),(6962,35,163,1),(6963,30,163,2),(6964,40,163,3),(6965,30,163,4),(6966,30,163,5),(6967,30,163,6),(6968,35,163,7),(6969,30,163,8),(6970,30,163,9),(6971,25,163,10),(6972,13,163,11),(7561,4,25,12),(7562,26,25,1),(7563,27,25,2),(7564,30,25,3),(7565,30,25,4),(7566,28,25,5),(7567,29,25,6),(7568,52,25,7),(7569,65,25,8),(7570,37,25,9),(7571,28,25,10),(7572,12,25,11),(7657,4,188,12),(7658,45,188,1),(7659,30,188,2),(7660,35,188,3),(7661,45,188,4),(7662,30,188,5),(7663,35,188,6),(7664,25,188,7),(7665,25,188,8),(7666,30,188,9),(7667,25,188,10),(7668,14,188,11),(7669,4,189,12),(7670,35,189,1),(7671,30,189,2),(7672,30,189,3),(7673,35,189,4),(7674,30,189,5),(7675,35,189,6),(7676,25,189,7),(7677,25,189,8),(7678,35,189,9),(7679,25,189,10),(7680,12,189,11),(7693,6,191,12),(7694,65,191,1),(7695,25,191,2),(7696,55,191,3),(7697,55,191,4),(7698,20,191,5),(7699,35,191,6),(7700,25,191,7),(7701,20,191,8),(7702,30,191,9),(7703,15,191,10),(7704,30,191,11),(7981,4,219,12),(7982,25,219,1),(7983,40,219,2),(7984,35,219,3),(7985,35,219,4),(7986,20,219,5),(7987,35,219,6),(7988,40,219,7),(7989,30,219,8),(7990,20,219,9),(7991,20,219,10),(7992,14,219,11),(7993,4,220,12),(7994,55,220,1),(7995,0,220,2),(7996,35,220,3),(7997,40,220,4),(7998,30,220,5),(7999,55,220,6),(8000,0,220,7),(8001,15,220,8),(8002,15,220,9),(8003,0,220,10),(8004,12,220,11),(8005,4,221,12),(8006,45,221,1),(8007,60,221,2),(8008,40,221,3),(8009,40,221,4),(8010,30,221,5),(8011,35,221,6),(8012,40,221,7),(8013,30,221,8),(8014,50,221,9),(8015,25,221,10),(8016,21,221,11),(9949,4,383,12),(9950,48,383,1),(9951,58,383,2),(9952,51,383,3),(9953,55,383,4),(9954,35,383,5),(9955,57,383,6),(9956,35,383,7),(9957,30,383,8),(9958,34,383,9),(9959,27,383,10),(9960,18,383,11),(9961,4,384,12),(9962,39,384,1),(9963,31,384,2),(9964,31,384,3),(9965,23,384,4),(9966,32,384,5),(9967,29,384,6),(9968,27,384,7),(9969,47,384,8),(9970,39,384,9),(9971,29,384,10),(9972,10,384,11),(9973,4,385,12),(9974,42,385,1),(9975,27,385,2),(9976,29,385,3),(9977,30,385,4),(9978,49,385,5),(9979,40,385,6),(9980,28,385,7),(9981,56,385,8),(9982,52,385,9),(9983,31,385,10),(9984,13,385,11);
 /*!40000 ALTER TABLE `character_characteristic` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -373,15 +543,15 @@ DROP TABLE IF EXISTS `character_condition`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `character_condition` (
-                                       `id` bigint NOT NULL AUTO_INCREMENT,
-                                       `value` int DEFAULT NULL,
-                                       `character_id` bigint NOT NULL,
-                                       `condition_id` bigint NOT NULL,
-                                       `counter` int DEFAULT NULL,
-                                       PRIMARY KEY (`id`),
-                                       KEY `FKkalc3acx8eykhh7b4wg8ur0fq` (`condition_id`),
-                                       CONSTRAINT `FKkalc3acx8eykhh7b4wg8ur0fq` FOREIGN KEY (`condition_id`) REFERENCES `condition_entity` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=273 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `id` bigint NOT NULL AUTO_INCREMENT,
+  `value` int DEFAULT NULL,
+  `character_id` bigint NOT NULL,
+  `condition_id` bigint NOT NULL,
+  `counter` int DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `FKkalc3acx8eykhh7b4wg8ur0fq` (`condition_id`),
+  CONSTRAINT `FKkalc3acx8eykhh7b4wg8ur0fq` FOREIGN KEY (`condition_id`) REFERENCES `condition_entity` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=274 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -402,14 +572,14 @@ DROP TABLE IF EXISTS `character_creature_trait`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `character_creature_trait` (
-                                            `id` bigint NOT NULL AUTO_INCREMENT,
-                                            `value` varchar(255) DEFAULT NULL,
-                                            `character_id` bigint NOT NULL,
-                                            `creature_trait_id` bigint NOT NULL,
-                                            PRIMARY KEY (`id`),
-                                            KEY `FKd29rp5oji2jghywovertf9e3e` (`creature_trait_id`),
-                                            CONSTRAINT `FKd29rp5oji2jghywovertf9e3e` FOREIGN KEY (`creature_trait_id`) REFERENCES `creature_trait` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=1377 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `id` bigint NOT NULL AUTO_INCREMENT,
+  `value` varchar(255) DEFAULT NULL,
+  `character_id` bigint NOT NULL,
+  `creature_trait_id` bigint NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `FKd29rp5oji2jghywovertf9e3e` (`creature_trait_id`),
+  CONSTRAINT `FKd29rp5oji2jghywovertf9e3e` FOREIGN KEY (`creature_trait_id`) REFERENCES `creature_trait` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1504 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -418,7 +588,7 @@ CREATE TABLE `character_creature_trait` (
 
 LOCK TABLES `character_creature_trait` WRITE;
 /*!40000 ALTER TABLE `character_creature_trait` DISABLE KEYS */;
-INSERT INTO `character_creature_trait` VALUES (13,'0',52,76),(14,NULL,52,83),(15,NULL,52,82),(16,'2',52,66),(17,'+6',52,80),(119,'+9',70,80),(120,'+8',70,24),(121,NULL,70,74),(122,NULL,70,59),(123,'(Purpurowa Gorączka Mózgowa))',70,84),(124,'(Umiarkowane)',70,21),(125,'2',70,31),(126,NULL,70,36),(127,NULL,70,50),(128,NULL,70,85),(130,NULL,41,6),(155,NULL,65,62),(156,NULL,65,25),(157,NULL,65,56),(158,'Duży',65,57),(159,NULL,65,71),(160,'+8',65,9),(161,NULL,65,77),(162,NULL,65,42),(771,'8+',55,24),(772,NULL,55,51),(773,'+8',55,38),(774,'(2)',55,31),(792,NULL,33,62),(793,'(Pomniejsze)',33,21),(822,NULL,161,19),(823,NULL,161,51),(824,NULL,161,73),(825,NULL,161,56),(826,'(Pomniejsze)',161,21),(827,'2',161,31),(828,NULL,161,50),(829,NULL,160,28),(830,'-10',160,76),(831,NULL,160,73),(832,'+5',160,9),(833,NULL,160,50),(834,NULL,160,42),(835,NULL,160,39),(836,'2',160,31),(841,NULL,188,34),(842,NULL,188,3),(843,'+6',188,38),(844,NULL,188,50),(845,NULL,189,3),(846,NULL,189,50),(851,NULL,191,34),(852,NULL,191,3),(853,'+9',191,38),(854,NULL,191,50),(855,NULL,191,39),(856,'(Duży)',191,57),(857,NULL,191,6),(869,'(Krasnoludy)',219,37),(870,'(Elfy)',219,1),(871,NULL,219,36),(872,NULL,219,50),(873,NULL,219,42),(874,'+7',220,80),(875,NULL,220,61),(876,NULL,220,72),(877,'(Wierzchowiec)',220,69),(878,NULL,220,50),(879,NULL,220,7),(880,'(Elfy)',221,1),(881,'(Krasnoludy)',221,37),(882,NULL,221,36),(883,NULL,221,50),(884,NULL,221,44),(1302,'(Elfy)',316,1),(1303,'(Krasnoludy)',316,37),(1304,NULL,316,36),(1305,NULL,316,50),(1306,NULL,316,42),(1307,'(Elfy)',317,1),(1308,'(Krasnoludy)',317,37),(1309,NULL,317,36),(1310,NULL,317,50),(1311,NULL,317,42),(1312,'(Elfy)',318,1),(1313,'(Krasnoludy)',318,37),(1314,NULL,318,36),(1315,NULL,318,50),(1316,NULL,318,42),(1317,'(Elfy)',319,1),(1318,'(Krasnoludy)',319,37),(1319,NULL,319,36),(1320,NULL,319,50),(1321,NULL,319,42),(1322,'(Elfy)',320,1),(1323,'(Krasnoludy)',320,37),(1324,NULL,320,36),(1325,NULL,320,50),(1326,NULL,320,42),(1327,'(Elfy)',321,1),(1328,'(Krasnoludy)',321,37),(1329,NULL,321,36),(1330,NULL,321,50),(1331,NULL,321,42),(1332,'(Elfy)',322,1),(1333,'(Krasnoludy)',322,37),(1334,NULL,322,36),(1335,NULL,322,50),(1336,NULL,322,42),(1337,'(Elfy)',323,1),(1338,'(Krasnoludy)',323,37),(1339,NULL,323,36),(1340,NULL,323,50),(1341,NULL,323,42),(1342,'(Elfy)',324,1),(1343,'(Krasnoludy)',324,37),(1344,NULL,324,36),(1345,NULL,324,50),(1346,NULL,324,42),(1347,'(Elfy)',325,1),(1348,'(Krasnoludy)',325,37),(1349,NULL,325,36),(1350,NULL,325,50),(1351,NULL,325,42),(1352,'(Elfy)',326,1),(1353,'(Krasnoludy)',326,37),(1354,NULL,326,36),(1355,NULL,326,50),(1356,NULL,326,42),(1357,'(Elfy)',327,1),(1358,'(Krasnoludy)',327,37),(1359,NULL,327,36),(1360,NULL,327,50),(1361,NULL,327,42),(1362,'(Elfy)',328,1),(1363,'(Krasnoludy)',328,37),(1364,NULL,328,36),(1365,NULL,328,50),(1366,NULL,328,42),(1367,'(Elfy)',329,1),(1368,'(Krasnoludy)',329,37),(1369,NULL,329,36),(1370,NULL,329,50),(1371,NULL,329,42),(1372,'(Elfy)',330,1),(1373,'(Krasnoludy)',330,37),(1374,NULL,330,36),(1375,NULL,330,50),(1376,NULL,330,42);
+INSERT INTO `character_creature_trait` VALUES (13,'0',52,76),(14,NULL,52,83),(15,NULL,52,82),(16,'2',52,66),(17,'+6',52,80),(119,'+9',70,80),(120,'+8',70,24),(121,NULL,70,74),(122,NULL,70,59),(123,'(Purpurowa Gorączka Mózgowa))',70,84),(124,'(Umiarkowane)',70,21),(125,'2',70,31),(126,NULL,70,36),(127,NULL,70,50),(128,NULL,70,85),(130,NULL,41,6),(155,NULL,65,62),(156,NULL,65,25),(157,NULL,65,56),(158,'Duży',65,57),(159,NULL,65,71),(160,'+8',65,9),(161,NULL,65,77),(162,NULL,65,42),(771,'8+',55,24),(772,NULL,55,51),(773,'+8',55,38),(774,'(2)',55,31),(792,NULL,33,62),(793,'(Pomniejsze)',33,21),(822,NULL,161,19),(823,NULL,161,51),(824,NULL,161,73),(825,NULL,161,56),(826,'(Pomniejsze)',161,21),(827,'2',161,31),(828,NULL,161,50),(829,NULL,160,28),(830,'-10',160,76),(831,NULL,160,73),(832,'+5',160,9),(833,NULL,160,50),(834,NULL,160,42),(835,NULL,160,39),(836,'2',160,31),(841,NULL,188,34),(842,NULL,188,3),(843,'+6',188,38),(844,NULL,188,50),(845,NULL,189,3),(846,NULL,189,50),(851,NULL,191,34),(852,NULL,191,3),(853,'+9',191,38),(854,NULL,191,50),(855,NULL,191,39),(856,'(Duży)',191,57),(857,NULL,191,6),(869,'(Krasnoludy)',219,37),(870,'(Elfy)',219,1),(871,NULL,219,36),(872,NULL,219,50),(873,NULL,219,42),(874,'+7',220,80),(875,NULL,220,61),(876,NULL,220,72),(877,'(Wierzchowiec)',220,69),(878,NULL,220,50),(879,NULL,220,7),(880,'(Elfy)',221,1),(881,'(Krasnoludy)',221,37),(882,NULL,221,36),(883,NULL,221,50),(884,NULL,221,44),(1502,'(Umiarkowane)',385,21),(1503,'1',385,32);
 /*!40000 ALTER TABLE `character_creature_trait` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -430,12 +600,12 @@ DROP TABLE IF EXISTS `character_entity`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `character_entity` (
-                                    `id` bigint NOT NULL,
-                                    `description` varchar(255) DEFAULT NULL,
-                                    `is_right_handed` bit(1) DEFAULT NULL,
-                                    `name` varchar(255) DEFAULT NULL,
-                                    `group_column` varchar(255) DEFAULT NULL,
-                                    PRIMARY KEY (`id`)
+  `id` bigint NOT NULL,
+  `description` varchar(255) DEFAULT NULL,
+  `is_right_handed` bit(1) DEFAULT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `group_column` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -445,7 +615,7 @@ CREATE TABLE `character_entity` (
 
 LOCK TABLES `character_entity` WRITE;
 /*!40000 ALTER TABLE `character_entity` DISABLE KEYS */;
-INSERT INTO `character_entity` VALUES (25,'Postać Konrada - Człowiek',_binary '','Gotthard Lauterbach','Bohaterowie'),(26,'Postać Piotra Ż. - Krasnolud',_binary '','Throngroth Hegalison','Bohaterowie'),(27,'Postać Piotra P. - Krasnolud',_binary '','Ullagrund Ganddreng','Bohaterowie'),(28,'Postać Huberta - Niziołek',_binary '','Nobbi Wesołek','Bohaterowie'),(29,'Postać Kuby - Człowiek',_binary '','Rygar','Bohaterowie'),(30,'Postać Klaudii - Człowiek',_binary '','Renia Sianko','Bohaterowie'),(33,'Mutant, Zbój',_binary '','Mutant','Mutanci'),(40,'Doświadczony Łowca Nagród',_binary '','Adolphus Kuftsos','Główni BN'),(41,'',_binary '','Oprych','Oprychy'),(42,'Kapitan barki \"Lyan\"',_binary '','Marcus','Główni BN'),(43,'Mąciwoda',_binary '','Max Ernst','Oprychy'),(52,'Potwór z kanałów',_binary '','Ameba','Potwory'),(54,'Gladiator',_binary '','Gladiator','Zawodnicy'),(55,'Spotkany w świątyni w kanałach',_binary '','Herold Tzeentcha','Demony'),(65,'Troll',_binary '','Troll','Potwory'),(68,'Człowiek, Demonolog i Patrycjusz',_binary '','Johannes Teugen','Główni BN'),(70,'Sheru-Tar Gee\'Taru - Herold Tzeentcha',_binary '','Gideon','Główni BN'),(158,'Herszt piratów',_binary '','Herszt','Piraci Rzeczni'),(159,'Pirat Rzeczny',_binary '','Pirat','Piraci Rzeczni'),(160,'Ghoul z wieży semafora',_binary '','Ghoul Czempion','Nieumarli'),(161,'',_binary '','Zombi z wieży Semafora','Nieumarli'),(162,'Straż',_binary '','Kapitan Straży','Straż'),(163,'Straż',_binary '','Rekrut Straży','Straż'),(188,'',_binary '','Gor','Zwierzoludzie'),(189,'',_binary '','Ungor','Zwierzoludzie'),(191,'',_binary '','Minotaur','Zwierzoludzie'),(219,'Plemię Wykrzywionej Paszczy',_binary '','Goblin','Zielonoskórzy'),(220,'',_binary '','Wielki Wilk','Zwierzęta'),(221,'Herszt plemienia Wykrzywionej Paszczy',_binary '','Gutbag Gronostajodławca','Zielonoskórzy');
+INSERT INTO `character_entity` VALUES (25,'Postać Konrada - Człowiek',_binary '','Gotthard Lauterbach','Bohaterowie'),(26,'Postać Piotra Ż. - Krasnolud',_binary '','Throngroth Hegalison','Bohaterowie'),(27,'Postać Piotra P. - Krasnolud',_binary '','Ullagrund Ganddreng','Bohaterowie'),(28,'Postać Huberta - Niziołek',_binary '','Nobbi Wesołek','Bohaterowie'),(29,'Postać Kuby - Człowiek',_binary '','Rygar','Bohaterowie'),(30,'Postać Klaudii - Człowiek',_binary '','Renia Sianko','Bohaterowie'),(33,'Mutant, Zbój',_binary '','Mutant','Mutanci'),(40,'Doświadczony Łowca Nagród',_binary '','Adolphus Kuftsos','Główni BN'),(41,'',_binary '','Oprych','Oprychy'),(42,'Kapitan barki \"Lyan\"',_binary '','Marcus','Główni BN'),(43,'Mąciwoda',_binary '','Max Ernst','Oprychy'),(52,'Potwór z kanałów',_binary '','Ameba','Potwory'),(54,'Gladiator',_binary '','Gladiator','Zawodnicy'),(55,'Spotkany w świątyni w kanałach',_binary '','Herold Tzeentcha','Demony'),(65,'Troll',_binary '','Troll','Potwory'),(68,'Człowiek, Demonolog i Patrycjusz',_binary '','Johannes Teugen','Główni BN'),(70,'Sheru-Tar Gee\'Taru - Herold Tzeentcha',_binary '','Gideon','Główni BN'),(158,'Herszt piratów',_binary '','Herszt','Piraci Rzeczni'),(159,'Pirat Rzeczny',_binary '','Pirat','Piraci Rzeczni'),(160,'Ghoul z wieży semafora',_binary '','Ghoul Czempion','Nieumarli'),(161,'',_binary '','Zombi z wieży Semafora','Nieumarli'),(162,'Straż',_binary '','Kapitan Straży','Straż'),(163,'Straż',_binary '','Rekrut Straży','Straż'),(188,'',_binary '','Gor','Zwierzoludzie'),(189,'',_binary '','Ungor','Zwierzoludzie'),(191,'',_binary '','Minotaur','Zwierzoludzie'),(219,'Plemię Wykrzywionej Paszczy',_binary '','Goblin','Zielonoskórzy'),(220,'',_binary '','Wielki Wilk','Zwierzęta'),(221,'Herszt plemienia Wykrzywionej Paszczy',_binary '','Gutbag Gronostajodławca','Zielonoskórzy'),(383,'Najemnik',_binary '','Oswald','Główni BN'),(384,'Uczeń Czarodzieja',_binary '','Ernst Heidlemann','Główni BN'),(385,'Mistrzyni Magii',_binary '','Etelka Herzen','Główni BN');
 /*!40000 ALTER TABLE `character_entity` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -457,14 +627,14 @@ DROP TABLE IF EXISTS `character_skill`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `character_skill` (
-                                   `id` bigint NOT NULL AUTO_INCREMENT,
-                                   `value` int DEFAULT NULL,
-                                   `character_id` bigint NOT NULL,
-                                   `skill_id` bigint NOT NULL,
-                                   PRIMARY KEY (`id`),
-                                   KEY `FKabu9xeixjyfy5x8b091c5asy5` (`skill_id`),
-                                   CONSTRAINT `FKabu9xeixjyfy5x8b091c5asy5` FOREIGN KEY (`skill_id`) REFERENCES `skill` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=1026 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `id` bigint NOT NULL AUTO_INCREMENT,
+  `value` int DEFAULT NULL,
+  `character_id` bigint NOT NULL,
+  `skill_id` bigint NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `FKabu9xeixjyfy5x8b091c5asy5` (`skill_id`),
+  CONSTRAINT `FKabu9xeixjyfy5x8b091c5asy5` FOREIGN KEY (`skill_id`) REFERENCES `skill` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1181 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -473,7 +643,7 @@ CREATE TABLE `character_skill` (
 
 LOCK TABLES `character_skill` WRITE;
 /*!40000 ALTER TABLE `character_skill` DISABLE KEYS */;
-INSERT INTO `character_skill` VALUES (169,73,42,14),(170,50,42,36),(171,49,42,123),(172,47,42,37),(173,64,42,44),(174,82,42,105),(175,65,42,28),(176,50,42,96),(177,52,43,28),(178,51,43,42),(179,65,43,13),(180,56,43,15),(181,54,43,25),(454,77,40,8),(455,63,40,28),(456,73,40,98),(457,37,40,10),(458,37,40,27),(459,67,40,42),(460,85,40,17),(461,40,40,48),(462,55,40,38),(463,47,40,23),(464,42,40,9),(465,61,40,118),(466,77,40,47),(467,72,40,45),(468,45,40,37),(469,32,40,24),(470,45,40,119),(471,66,40,12),(472,66,40,25),(473,55,68,28),(474,73,68,26),(475,74,68,70),(476,80,68,57),(482,53,54,15),(483,74,54,25),(596,50,159,96),(597,49,159,15),(599,58,158,96),(600,49,158,15),(601,57,162,28),(602,55,162,96),(603,55,162,27),(604,48,162,26),(605,35,162,17),(606,40,162,13),(607,48,162,38),(608,39,162,15),(609,40,163,28),(610,35,163,38),(611,35,163,15),(692,70,25,48),(693,70,25,63),(695,57,25,117),(699,35,219,28),(700,50,219,97),(701,30,219,38),(702,55,221,28),(703,70,221,97),(704,30,221,38),(981,35,316,28),(982,50,316,97),(983,30,316,38),(984,35,317,28),(985,50,317,97),(986,30,317,38),(987,35,318,28),(988,50,318,97),(989,30,318,38),(990,35,319,28),(991,50,319,97),(992,30,319,38),(993,35,320,28),(994,50,320,97),(995,30,320,38),(996,35,321,28),(997,50,321,97),(998,30,321,38),(999,35,322,28),(1000,50,322,97),(1001,30,322,38),(1002,35,323,28),(1003,50,323,97),(1004,30,323,38),(1005,35,324,28),(1006,50,324,97),(1007,30,324,38),(1008,35,325,28),(1009,50,325,97),(1010,30,325,38),(1011,35,326,28),(1012,50,326,97),(1013,30,326,38),(1014,35,327,28),(1015,50,327,97),(1016,30,327,38),(1017,35,328,28),(1018,50,328,97),(1019,30,328,38),(1020,35,329,28),(1021,50,329,97),(1022,30,329,38),(1023,35,330,28),(1024,50,330,97),(1025,30,330,38);
+INSERT INTO `character_skill` VALUES (169,73,42,14),(170,50,42,36),(171,49,42,123),(172,47,42,37),(173,64,42,44),(174,82,42,105),(175,65,42,28),(176,50,42,96),(177,52,43,28),(178,51,43,42),(179,65,43,13),(180,56,43,15),(181,54,43,25),(454,77,40,8),(455,63,40,28),(456,73,40,98),(457,37,40,10),(458,37,40,27),(459,67,40,42),(460,85,40,17),(461,40,40,48),(462,55,40,38),(463,47,40,23),(464,42,40,9),(465,61,40,118),(466,77,40,47),(467,72,40,45),(468,45,40,37),(469,32,40,24),(470,45,40,119),(471,66,40,12),(472,66,40,25),(473,55,68,28),(474,73,68,26),(475,74,68,70),(476,80,68,57),(482,53,54,15),(483,74,54,25),(596,50,159,96),(597,49,159,15),(599,58,158,96),(600,49,158,15),(601,57,162,28),(602,55,162,96),(603,55,162,27),(604,48,162,26),(605,35,162,17),(606,40,162,13),(607,48,162,38),(608,39,162,15),(609,40,163,28),(610,35,163,38),(611,35,163,15),(692,70,25,48),(693,70,25,63),(695,57,25,117),(699,35,219,28),(700,50,219,97),(701,30,219,38),(702,55,221,28),(703,70,221,97),(704,30,221,38),(1142,77,383,8),(1143,63,383,28),(1144,68,383,98),(1145,37,383,10),(1146,37,383,27),(1147,40,383,42),(1148,72,383,17),(1149,40,383,48),(1150,55,383,38),(1152,61,383,118),(1154,45,383,47),(1156,45,383,37),(1158,45,383,119),(1159,66,383,12),(1160,66,383,25),(1161,55,41,28),(1162,45,384,28),(1163,37,384,26),(1164,54,384,70),(1165,37,384,38),(1166,32,384,15),(1167,51,384,78),(1168,52,385,28),(1169,36,385,27),(1170,59,385,26),(1171,69,385,70),(1172,67,385,67),(1173,64,385,13),(1174,57,385,38),(1175,46,385,15),(1176,68,385,78),(1177,62,385,128);
 /*!40000 ALTER TABLE `character_skill` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -485,10 +655,10 @@ DROP TABLE IF EXISTS `character_spell`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `character_spell` (
-                                   `character_id` bigint NOT NULL,
-                                   `spell_id` bigint NOT NULL,
-                                   KEY `FKh9md6ppi1pboqd87oj35lf30o` (`spell_id`),
-                                   CONSTRAINT `FKh9md6ppi1pboqd87oj35lf30o` FOREIGN KEY (`spell_id`) REFERENCES `spell` (`id`)
+  `character_id` bigint NOT NULL,
+  `spell_id` bigint NOT NULL,
+  KEY `FKh9md6ppi1pboqd87oj35lf30o` (`spell_id`),
+  CONSTRAINT `FKh9md6ppi1pboqd87oj35lf30o` FOREIGN KEY (`spell_id`) REFERENCES `spell` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -498,7 +668,7 @@ CREATE TABLE `character_spell` (
 
 LOCK TABLES `character_spell` WRITE;
 /*!40000 ALTER TABLE `character_spell` DISABLE KEYS */;
-INSERT INTO `character_spell` VALUES (68,3),(68,4),(68,1),(68,2),(70,6),(70,5),(70,8),(70,9),(70,7);
+INSERT INTO `character_spell` VALUES (68,3),(68,4),(68,1),(68,2),(70,6),(70,5),(70,8),(70,9),(70,7),(384,10),(384,11),(384,12),(384,13),(384,14),(384,15),(385,22),(385,23),(385,16),(385,13),(385,18),(385,17),(385,24),(385,19),(385,4),(385,20),(385,25),(385,26),(385,27),(385,28),(385,15),(385,21);
 /*!40000 ALTER TABLE `character_spell` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -510,14 +680,14 @@ DROP TABLE IF EXISTS `character_talent`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `character_talent` (
-                                    `id` bigint NOT NULL AUTO_INCREMENT,
-                                    `value` int DEFAULT NULL,
-                                    `character_id` bigint NOT NULL,
-                                    `talent_id` bigint NOT NULL,
-                                    PRIMARY KEY (`id`),
-                                    KEY `FK7iq8gv87fb3fod88c02evllm3` (`talent_id`),
-                                    CONSTRAINT `FK7iq8gv87fb3fod88c02evllm3` FOREIGN KEY (`talent_id`) REFERENCES `talent` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=1568 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `id` bigint NOT NULL AUTO_INCREMENT,
+  `value` int DEFAULT NULL,
+  `character_id` bigint NOT NULL,
+  `talent_id` bigint NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `FK7iq8gv87fb3fod88c02evllm3` (`talent_id`),
+  CONSTRAINT `FK7iq8gv87fb3fod88c02evllm3` FOREIGN KEY (`talent_id`) REFERENCES `talent` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1876 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -526,7 +696,7 @@ CREATE TABLE `character_talent` (
 
 LOCK TABLES `character_talent` WRITE;
 /*!40000 ALTER TABLE `character_talent` DISABLE KEYS */;
-INSERT INTO `character_talent` VALUES (170,1,42,212),(171,1,42,83),(172,1,42,141),(173,1,43,64),(174,1,43,192),(175,1,43,193),(176,1,43,65),(177,1,43,191),(178,1,43,56),(324,1,27,151),(325,1,27,157),(326,1,27,127),(327,1,27,198),(328,1,27,135),(329,1,27,212),(330,1,26,198),(331,1,26,156),(332,1,26,135),(333,1,26,151),(334,1,26,157),(335,1,26,69),(336,1,26,87),(337,1,30,176),(338,1,30,151),(339,1,30,10),(340,1,28,178),(533,1,52,145),(591,2,40,172),(592,1,40,194),(593,1,40,152),(594,1,40,193),(595,1,40,191),(596,1,40,129),(597,1,40,181),(598,1,68,144),(599,1,68,220),(600,1,68,170),(632,2,54,64),(633,1,54,158),(634,1,54,118),(1085,1,158,91),(1225,1,25,137),(1226,1,25,165),(1227,1,25,151),(1228,1,25,9),(1229,2,25,10),(1230,1,25,67),(1266,1,25,82),(1267,1,25,203),(1268,1,25,56),(1269,1,26,127),(1270,1,26,76),(1271,1,26,177),(1272,1,26,158),(1273,2,26,92),(1274,1,27,58),(1275,1,28,135),(1276,1,28,136),(1277,1,28,125),(1278,1,28,156),(1279,1,28,58),(1280,1,28,6),(1281,1,28,212),(1282,1,28,61),(1283,1,29,199),(1284,1,29,67),(1285,1,29,212),(1286,1,29,58),(1287,1,29,122),(1288,1,29,191),(1289,1,29,135),(1290,1,29,154),(1291,1,29,193),(1292,1,29,211),(1293,1,30,26),(1369,2,219,1),(1370,2,221,1),(1371,1,221,162),(1549,2,316,1),(1550,2,317,1),(1551,2,318,1),(1552,2,319,1),(1553,2,320,1),(1554,2,321,1),(1555,2,322,1),(1556,2,323,1),(1557,2,324,1),(1558,2,325,1),(1559,2,326,1),(1560,2,327,1),(1561,2,328,1),(1562,2,329,1),(1563,2,330,1),(1564,1,26,104),(1565,1,30,72),(1566,1,28,72),(1567,1,25,72);
+INSERT INTO `character_talent` VALUES (170,1,42,212),(171,1,42,83),(172,1,42,141),(173,1,43,64),(174,1,43,192),(175,1,43,193),(176,1,43,65),(177,1,43,191),(178,1,43,56),(324,1,27,151),(325,1,27,157),(326,1,27,127),(327,1,27,198),(328,1,27,135),(329,1,27,212),(330,1,26,198),(331,1,26,156),(332,1,26,135),(333,1,26,151),(334,1,26,157),(335,1,26,69),(336,1,26,87),(337,1,30,176),(338,1,30,151),(339,1,30,10),(340,1,28,178),(533,1,52,145),(591,2,40,172),(592,1,40,194),(593,1,40,152),(594,1,40,193),(595,1,40,191),(596,1,40,129),(597,1,40,181),(598,1,68,144),(599,1,68,220),(600,1,68,170),(632,2,54,64),(633,1,54,158),(634,1,54,118),(1085,1,158,91),(1225,1,25,137),(1226,1,25,165),(1227,1,25,151),(1228,1,25,9),(1229,2,25,10),(1230,1,25,67),(1266,1,25,82),(1267,1,25,203),(1268,1,25,56),(1269,1,26,127),(1270,1,26,76),(1271,1,26,177),(1272,2,26,158),(1273,2,26,92),(1274,1,27,58),(1275,1,28,135),(1276,1,28,136),(1277,1,28,125),(1278,1,28,156),(1279,1,28,58),(1280,1,28,6),(1281,1,28,212),(1282,1,28,61),(1283,1,29,199),(1284,1,29,67),(1285,1,29,212),(1286,1,29,58),(1287,1,29,122),(1288,1,29,191),(1289,1,29,135),(1290,1,29,154),(1291,1,29,193),(1292,1,29,211),(1293,1,30,26),(1369,2,219,1),(1370,2,221,1),(1371,1,221,162),(1564,1,26,104),(1565,1,30,72),(1566,1,28,72),(1567,1,25,72),(1847,1,383,194),(1848,1,383,152),(1849,1,383,193),(1850,1,383,191),(1853,1,384,165),(1854,1,384,85),(1855,1,384,151),(1856,1,384,144),(1857,1,384,3),(1858,1,385,23),(1859,1,385,151),(1860,1,385,49),(1861,1,385,144),(1862,1,385,170),(1863,3,385,107),(1864,1,385,126),(1865,1,385,7);
 /*!40000 ALTER TABLE `character_talent` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -538,14 +708,14 @@ DROP TABLE IF EXISTS `character_weapon`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `character_weapon` (
-                                    `id` bigint NOT NULL AUTO_INCREMENT,
-                                    `value` int DEFAULT NULL,
-                                    `character_id` bigint NOT NULL,
-                                    `weapon_id` bigint NOT NULL,
-                                    PRIMARY KEY (`id`),
-                                    KEY `FKbguirset27kmboew4519168g4` (`weapon_id`),
-                                    CONSTRAINT `FKbguirset27kmboew4519168g4` FOREIGN KEY (`weapon_id`) REFERENCES `weapon` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=448 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `id` bigint NOT NULL AUTO_INCREMENT,
+  `value` int DEFAULT NULL,
+  `character_id` bigint NOT NULL,
+  `weapon_id` bigint NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `FKbguirset27kmboew4519168g4` (`weapon_id`),
+  CONSTRAINT `FKbguirset27kmboew4519168g4` FOREIGN KEY (`weapon_id`) REFERENCES `weapon` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=624 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -554,7 +724,7 @@ CREATE TABLE `character_weapon` (
 
 LOCK TABLES `character_weapon` WRITE;
 /*!40000 ALTER TABLE `character_weapon` DISABLE KEYS */;
-INSERT INTO `character_weapon` VALUES (1,1,27,60),(2,1,27,2),(3,1,26,2),(4,2,26,60),(5,1,26,23),(6,1,29,33),(7,1,29,55),(8,1,30,2),(9,1,30,66),(10,1,30,30),(11,1,30,52),(12,1,28,2),(13,1,28,44),(14,1,28,59),(15,1,28,58),(16,1,25,2),(17,1,188,60),(18,1,188,5),(19,1,189,60),(21,1,162,66),(22,1,162,5),(23,1,162,2),(24,1,163,60),(25,1,163,5),(26,1,163,2),(27,1,191,23),(34,1,219,66),(35,1,219,6),(36,1,219,34),(37,20,219,55),(38,1,221,66),(39,1,221,6),(40,1,221,34),(41,20,221,55),(387,1,316,66),(388,1,316,6),(389,1,316,34),(390,20,316,55),(391,1,317,66),(392,1,317,6),(393,1,317,34),(394,20,317,55),(395,1,318,66),(396,1,318,6),(397,1,318,34),(398,20,318,55),(399,1,319,66),(400,1,319,6),(401,1,319,34),(402,20,319,55),(403,1,320,66),(404,1,320,6),(405,1,320,34),(406,20,320,55),(407,1,321,66),(408,1,321,6),(409,1,321,34),(410,20,321,55),(411,1,322,66),(412,1,322,6),(413,1,322,34),(414,20,322,55),(415,1,323,66),(416,1,323,6),(417,1,323,34),(418,20,323,55),(419,1,324,66),(420,1,324,6),(421,1,324,34),(422,20,324,55),(423,1,325,66),(424,1,325,6),(425,1,325,34),(426,20,325,55),(427,1,326,66),(428,1,326,6),(429,1,326,34),(430,20,326,55),(431,1,327,66),(432,1,327,6),(433,1,327,34),(434,20,327,55),(435,1,328,66),(436,1,328,6),(437,1,328,34),(438,20,328,55),(439,1,329,66),(440,1,329,6),(441,1,329,34),(442,20,329,55),(443,1,330,66),(444,1,330,6),(445,1,330,34),(446,20,330,55),(447,1,26,25);
+INSERT INTO `character_weapon` VALUES (1,1,27,60),(2,1,27,2),(3,1,26,2),(4,2,26,60),(5,1,26,23),(6,1,29,33),(7,1,29,55),(8,1,30,2),(9,1,30,66),(10,1,30,30),(11,1,30,52),(12,1,28,2),(13,1,28,44),(14,1,28,59),(15,1,28,58),(16,1,25,2),(17,1,188,60),(18,1,188,5),(19,1,189,60),(21,1,162,66),(22,1,162,5),(23,1,162,2),(24,1,163,60),(25,1,163,5),(26,1,163,2),(27,1,191,23),(34,1,219,66),(35,1,219,6),(36,1,219,34),(37,20,219,55),(38,1,221,66),(39,1,221,6),(40,1,221,34),(41,20,221,55),(447,1,26,25),(612,1,383,66),(613,1,383,2),(614,1,383,6),(615,1,383,37),(616,25,383,57),(617,1,41,60),(618,1,41,37),(619,25,41,57),(620,1,384,66),(621,1,385,66),(622,1,385,2);
 /*!40000 ALTER TABLE `character_weapon` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -566,9 +736,9 @@ DROP TABLE IF EXISTS `characteristic`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `characteristic` (
-                                  `id` bigint NOT NULL AUTO_INCREMENT,
-                                  `name` varchar(255) DEFAULT NULL,
-                                  PRIMARY KEY (`id`)
+  `id` bigint NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -590,10 +760,10 @@ DROP TABLE IF EXISTS `condition_entity`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `condition_entity` (
-                                    `id` bigint NOT NULL AUTO_INCREMENT,
-                                    `name` varchar(255) DEFAULT NULL,
-                                    `has_counter` bit(1) DEFAULT NULL,
-                                    PRIMARY KEY (`id`)
+  `id` bigint NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) DEFAULT NULL,
+  `has_counter` bit(1) DEFAULT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -615,10 +785,10 @@ DROP TABLE IF EXISTS `creature_trait`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `creature_trait` (
-                                  `id` bigint NOT NULL AUTO_INCREMENT,
-                                  `has_value` bit(1) DEFAULT NULL,
-                                  `name` varchar(255) DEFAULT NULL,
-                                  PRIMARY KEY (`id`)
+  `id` bigint NOT NULL AUTO_INCREMENT,
+  `has_value` bit(1) DEFAULT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=88 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -633,6 +803,117 @@ INSERT INTO `creature_trait` VALUES (1,_binary '','AFRAID'),(2,_binary '\0','AM
 UNLOCK TABLES;
 
 --
+-- Table structure for table `django_admin_log`
+--
+
+DROP TABLE IF EXISTS `django_admin_log`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `django_admin_log` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `action_time` datetime(6) NOT NULL,
+  `object_id` longtext,
+  `object_repr` varchar(200) NOT NULL,
+  `action_flag` smallint unsigned NOT NULL,
+  `change_message` longtext NOT NULL,
+  `content_type_id` int DEFAULT NULL,
+  `user_id` int NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `django_admin_log_content_type_id_c4bce8eb_fk_django_co` (`content_type_id`),
+  KEY `django_admin_log_user_id_c564eba6_fk_auth_user_id` (`user_id`),
+  CONSTRAINT `django_admin_log_content_type_id_c4bce8eb_fk_django_co` FOREIGN KEY (`content_type_id`) REFERENCES `django_content_type` (`id`),
+  CONSTRAINT `django_admin_log_user_id_c564eba6_fk_auth_user_id` FOREIGN KEY (`user_id`) REFERENCES `auth_user` (`id`),
+  CONSTRAINT `django_admin_log_chk_1` CHECK ((`action_flag` >= 0))
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `django_admin_log`
+--
+
+LOCK TABLES `django_admin_log` WRITE;
+/*!40000 ALTER TABLE `django_admin_log` DISABLE KEYS */;
+/*!40000 ALTER TABLE `django_admin_log` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `django_content_type`
+--
+
+DROP TABLE IF EXISTS `django_content_type`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `django_content_type` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `app_label` varchar(100) NOT NULL,
+  `model` varchar(100) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `django_content_type_app_label_model_76bd3d3b_uniq` (`app_label`,`model`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `django_content_type`
+--
+
+LOCK TABLES `django_content_type` WRITE;
+/*!40000 ALTER TABLE `django_content_type` DISABLE KEYS */;
+INSERT INTO `django_content_type` VALUES (1,'admin','logentry'),(3,'auth','group'),(2,'auth','permission'),(4,'auth','user'),(5,'contenttypes','contenttype'),(6,'sessions','session');
+/*!40000 ALTER TABLE `django_content_type` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `django_migrations`
+--
+
+DROP TABLE IF EXISTS `django_migrations`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `django_migrations` (
+  `id` bigint NOT NULL AUTO_INCREMENT,
+  `app` varchar(255) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `applied` datetime(6) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `django_migrations`
+--
+
+LOCK TABLES `django_migrations` WRITE;
+/*!40000 ALTER TABLE `django_migrations` DISABLE KEYS */;
+INSERT INTO `django_migrations` VALUES (1,'contenttypes','0001_initial','2023-03-30 17:34:52.292235'),(2,'auth','0001_initial','2023-03-30 17:34:54.029865'),(3,'admin','0001_initial','2023-03-30 17:34:54.342424'),(4,'admin','0002_logentry_remove_auto_add','2023-03-30 17:34:54.354424'),(5,'admin','0003_logentry_add_action_flag_choices','2023-03-30 17:34:54.365426'),(6,'contenttypes','0002_remove_content_type_name','2023-03-30 17:34:54.584003'),(7,'auth','0002_alter_permission_name_max_length','2023-03-30 17:34:54.716938'),(8,'auth','0003_alter_user_email_max_length','2023-03-30 17:34:54.744662'),(9,'auth','0004_alter_user_username_opts','2023-03-30 17:34:54.755685'),(10,'auth','0005_alter_user_last_login_null','2023-03-30 17:34:54.859128'),(11,'auth','0006_require_contenttypes_0002','2023-03-30 17:34:54.868357'),(12,'auth','0007_alter_validators_add_error_messages','2023-03-30 17:34:54.881354'),(13,'auth','0008_alter_user_username_max_length','2023-03-30 17:34:55.001340'),(14,'auth','0009_alter_user_last_name_max_length','2023-03-30 17:34:55.133944'),(15,'auth','0010_alter_group_name_max_length','2023-03-30 17:34:55.164952'),(16,'auth','0011_update_proxy_permissions','2023-03-30 17:34:55.179952'),(17,'auth','0012_alter_user_first_name_max_length','2023-03-30 17:34:55.333970'),(18,'sessions','0001_initial','2023-03-30 17:34:55.439040');
+/*!40000 ALTER TABLE `django_migrations` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `django_session`
+--
+
+DROP TABLE IF EXISTS `django_session`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `django_session` (
+  `session_key` varchar(40) NOT NULL,
+  `session_data` longtext NOT NULL,
+  `expire_date` datetime(6) NOT NULL,
+  PRIMARY KEY (`session_key`),
+  KEY `django_session_expire_date_a5c62663` (`expire_date`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `django_session`
+--
+
+LOCK TABLES `django_session` WRITE;
+/*!40000 ALTER TABLE `django_session` DISABLE KEYS */;
+/*!40000 ALTER TABLE `django_session` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `hibernate_sequences`
 --
 
@@ -640,9 +921,9 @@ DROP TABLE IF EXISTS `hibernate_sequences`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `hibernate_sequences` (
-                                       `sequence_name` varchar(255) NOT NULL,
-                                       `next_val` bigint DEFAULT NULL,
-                                       PRIMARY KEY (`sequence_name`)
+  `sequence_name` varchar(255) NOT NULL,
+  `next_val` bigint DEFAULT NULL,
+  PRIMARY KEY (`sequence_name`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -652,7 +933,7 @@ CREATE TABLE `hibernate_sequences` (
 
 LOCK TABLES `hibernate_sequences` WRITE;
 /*!40000 ALTER TABLE `hibernate_sequences` DISABLE KEYS */;
-INSERT INTO `hibernate_sequences` VALUES ('default',330);
+INSERT INTO `hibernate_sequences` VALUES ('default',386);
 /*!40000 ALTER TABLE `hibernate_sequences` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -664,9 +945,9 @@ DROP TABLE IF EXISTS `injury`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `injury` (
-                          `id` bigint NOT NULL AUTO_INCREMENT,
-                          `name` varchar(255) DEFAULT NULL,
-                          PRIMARY KEY (`id`)
+  `id` bigint NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -688,11 +969,11 @@ DROP TABLE IF EXISTS `note`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `note` (
-                        `id` bigint NOT NULL AUTO_INCREMENT,
-                        `note` varchar(2000) DEFAULT NULL,
-                        `character_id` bigint NOT NULL,
-                        PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=194 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `id` bigint NOT NULL AUTO_INCREMENT,
+  `note` varchar(2000) DEFAULT NULL,
+  `character_id` bigint NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=255 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -701,7 +982,7 @@ CREATE TABLE `note` (
 
 LOCK TABLES `note` WRITE;
 /*!40000 ALTER TABLE `note` DISABLE KEYS */;
-INSERT INTO `note` VALUES (191,'Wyposażenie: czerwona suknia balowa założona na kolczugę, diamentowa tiara założona na czubek hełmu (warta 9 złotych koron), hełm, klucz do skrzyni w lokacji nr 12, krótki łuk, magiczna tarcza (+1 PZ podczas używania), miecz',221);
+INSERT INTO `note` VALUES (191,'Wyposażenie: czerwona suknia balowa założona na kolczugę, diamentowa tiara założona na czubek hełmu (warta 9 złotych koron), hełm, klucz do skrzyni w lokacji nr 12, krótki łuk, magiczna tarcza (+1 PZ podczas używania), miecz',221),(252,'Wyposażenie: 33 złote korony, 15 srebrnych szylingów i 3 brązowe pensy, miecz, podróżny sakwojaż (zawiera osobisty dobytek i 8 fiolek czerwonego płynu, mikstury potrzebnej do złagodzenia objawów jego Wycieńczajacej Choroby)',384),(254,'67 złotych koron, sztylet, mikstura lotu, onyksowa różdżka, podróżny sakwojaż, złote kolczyki (każdy wart 10 złotych koron), złote pierścionki (dwa, każdy wart 15 złotych koron)',385);
 /*!40000 ALTER TABLE `note` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -713,10 +994,10 @@ DROP TABLE IF EXISTS `skill`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `skill` (
-                         `id` bigint NOT NULL AUTO_INCREMENT,
-                         `name` varchar(255) DEFAULT NULL,
-                         PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=128 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `id` bigint NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=129 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -725,7 +1006,7 @@ CREATE TABLE `skill` (
 
 LOCK TABLES `skill` WRITE;
 /*!40000 ALTER TABLE `skill` DISABLE KEYS */;
-INSERT INTO `skill` VALUES (1,'ART_CARTOGRAPHY'),(2,'ART_ENGRAVING'),(3,'ART_MOSAICS'),(4,'ART_PAINTING'),(5,'ART_SCULPTURE'),(6,'ART_TATTOO'),(7,'ART_WEAVING'),(8,'ATHLETICS'),(9,'BRIBERY'),(10,'CHARM'),(11,'CHARM_ANIMAL'),(12,'CLIMB'),(13,'COOL'),(14,'CONSUME_ALCOHOL'),(15,'DODGE'),(16,'DRIVE'),(17,'ENDURANCE'),(18,'ENTERTAIN_ACTING'),(19,'ENTERTAIN_COMEDY'),(20,'ENTERTAIN_SINGING'),(21,'ENTERTAIN_STORYTELLING'),(22,'GAMBLE'),(23,'GOSSIP'),(24,'HAGGLE'),(25,'INTIMIDATE'),(26,'INTUITION'),(27,'LEADERSHIP'),(28,'MELEE_BASIC'),(29,'MELEE_BRAWLING'),(30,'MELEE_CAVALRY'),(31,'MELEE_FENCING'),(32,'MELEE_FLAIL'),(33,'MELEE_PARRY'),(34,'MELEE_POLEARM'),(35,'MELEE_TWO_HANDED'),(36,'NAVIGATION'),(37,'OUTDOOR_SURVIVAL'),(38,'PERCEPTION'),(39,'RIDE_DEMIGRYPH'),(40,'RIDE_GREAT_WOLF'),(41,'RIDE_GRIFFON'),(42,'RIDE_HORSE'),(43,'RIDE_PEGASUS'),(44,'ROW'),(45,'STEALTH_RURAL'),(46,'STEALTH_UNDERGROUND'),(47,'STEALTH_URBAN'),(48,'ANIMAL_CARE'),(49,'ANIMAL_TRAINING_DEMIGRYPH'),(50,'ANIMAL_TRAINING_DOG'),(51,'ANIMAL_TRAINING_HORSE'),(52,'ANIMAL_TRAINING_PEGASUS'),(53,'ANIMAL_TRAINING_PIGEON'),(54,'CHANNELLING_AQSHY'),(55,'CHANNELLING_AZYR'),(56,'CHANNELLING_CHAMON'),(57,'CHANNELLING_DHAR'),(58,'CHANNELLING_GHUR'),(59,'CHANNELLING_GHYRAN'),(60,'CHANNELLING_HYSH'),(61,'CHANNELLING_SHYISH'),(62,'CHANNELLING_ULGU'),(63,'EVALUATE'),(64,'HEAL'),(65,'LANGUAGE_BATTLE_TONGUE'),(66,'LANGUAGE_BRETONNIAN'),(67,'LANGUAGE_CLASSICAL'),(68,'LANGUAGE_GUILDER'),(69,'LANGUAGE_KHAZALID'),(70,'LANGUAGE_MAGICK'),(71,'LANGUAGE_THIEF'),(72,'LANGUAGE_TILEAN'),(73,'LORE_ENGINEERING'),(74,'LORE_GEOLOGY'),(75,'LORE_HERALDRY'),(76,'LORE_HISTORY'),(77,'LORE_LAW'),(78,'LORE_MAGICK'),(79,'LORE_METALLURGY'),(80,'LORE_SCIENCE'),(81,'LORE_THEOLOGY'),(82,'PERFORM_ACROBATICS'),(83,'PERFORM_CLOWNING'),(84,'PERFORM_DANCING'),(85,'PERFORM_FIREBREATHING'),(86,'PERFORM_JUGGLING'),(87,'PERFORM_MIMING'),(88,'PERFORM_ROPE_WALKING'),(89,'PICK_LOCK'),(90,'PLAY_BAGPIPE'),(91,'PLAY_LUTE'),(92,'PLAY_HARP'),(93,'PLAY_HORN'),(94,'PLAY_VIOLIN'),(95,'PRAY'),(96,'RANGED_BLACKPOWDER'),(97,'RANGED_BOW'),(98,'RANGED_CROSSBOW'),(99,'RANGED_ENGINEERING'),(100,'RANGED_ENTANGLING'),(101,'RANGED_EXPLOSIVES'),(102,'RANGED_SLING'),(103,'RANGED_THROWING'),(104,'RESEARCH'),(105,'SAIL_BARGE'),(106,'SAIL_CARAVEL'),(107,'SAIL_COG'),(108,'SAIL_FRIGATE'),(109,'SAIL_WOLFSHIP'),(110,'SECRET_SIGNS_GREY_ORDER'),(111,'SECRET_SIGNS_GUILD'),(112,'SECRET_SIGNS_RANGER'),(113,'SECRET_SIGNS_SCOUT'),(114,'SECRET_SIGNS_THIEF'),(115,'SECRET_SIGNS_VAGABOND'),(116,'SET_TRAP'),(117,'SLEIGHT_OF_HAND'),(118,'SWIM'),(119,'TRACK'),(120,'TRADE_APOTHECARY'),(121,'TRADE_CALLIGRAPHER'),(122,'TRADE_CHANDLER'),(123,'TRADE_CARPENTER'),(124,'TRADE_COOK'),(125,'TRADE_EMBALMER'),(126,'TRADE_SMITH'),(127,'TRADE_TANNER');
+INSERT INTO `skill` VALUES (1,'ART_CARTOGRAPHY'),(2,'ART_ENGRAVING'),(3,'ART_MOSAICS'),(4,'ART_PAINTING'),(5,'ART_SCULPTURE'),(6,'ART_TATTOO'),(7,'ART_WEAVING'),(8,'ATHLETICS'),(9,'BRIBERY'),(10,'CHARM'),(11,'CHARM_ANIMAL'),(12,'CLIMB'),(13,'COOL'),(14,'CONSUME_ALCOHOL'),(15,'DODGE'),(16,'DRIVE'),(17,'ENDURANCE'),(18,'ENTERTAIN_ACTING'),(19,'ENTERTAIN_COMEDY'),(20,'ENTERTAIN_SINGING'),(21,'ENTERTAIN_STORYTELLING'),(22,'GAMBLE'),(23,'GOSSIP'),(24,'HAGGLE'),(25,'INTIMIDATE'),(26,'INTUITION'),(27,'LEADERSHIP'),(28,'MELEE_BASIC'),(29,'MELEE_BRAWLING'),(30,'MELEE_CAVALRY'),(31,'MELEE_FENCING'),(32,'MELEE_FLAIL'),(33,'MELEE_PARRY'),(34,'MELEE_POLEARM'),(35,'MELEE_TWO_HANDED'),(36,'NAVIGATION'),(37,'OUTDOOR_SURVIVAL'),(38,'PERCEPTION'),(39,'RIDE_DEMIGRYPH'),(40,'RIDE_GREAT_WOLF'),(41,'RIDE_GRIFFON'),(42,'RIDE_HORSE'),(43,'RIDE_PEGASUS'),(44,'ROW'),(45,'STEALTH_RURAL'),(46,'STEALTH_UNDERGROUND'),(47,'STEALTH_URBAN'),(48,'ANIMAL_CARE'),(49,'ANIMAL_TRAINING_DEMIGRYPH'),(50,'ANIMAL_TRAINING_DOG'),(51,'ANIMAL_TRAINING_HORSE'),(52,'ANIMAL_TRAINING_PEGASUS'),(53,'ANIMAL_TRAINING_PIGEON'),(54,'CHANNELLING_AQSHY'),(55,'CHANNELLING_AZYR'),(56,'CHANNELLING_CHAMON'),(57,'CHANNELLING_DHAR'),(58,'CHANNELLING_GHUR'),(59,'CHANNELLING_GHYRAN'),(60,'CHANNELLING_HYSH'),(61,'CHANNELLING_SHYISH'),(62,'CHANNELLING_ULGU'),(63,'EVALUATE'),(64,'HEAL'),(65,'LANGUAGE_BATTLE_TONGUE'),(66,'LANGUAGE_BRETONNIAN'),(67,'LANGUAGE_CLASSICAL'),(68,'LANGUAGE_GUILDER'),(69,'LANGUAGE_KHAZALID'),(70,'LANGUAGE_MAGICK'),(71,'LANGUAGE_THIEF'),(72,'LANGUAGE_TILEAN'),(73,'LORE_ENGINEERING'),(74,'LORE_GEOLOGY'),(75,'LORE_HERALDRY'),(76,'LORE_HISTORY'),(77,'LORE_LAW'),(78,'LORE_MAGICK'),(79,'LORE_METALLURGY'),(80,'LORE_SCIENCE'),(81,'LORE_THEOLOGY'),(82,'PERFORM_ACROBATICS'),(83,'PERFORM_CLOWNING'),(84,'PERFORM_DANCING'),(85,'PERFORM_FIREBREATHING'),(86,'PERFORM_JUGGLING'),(87,'PERFORM_MIMING'),(88,'PERFORM_ROPE_WALKING'),(89,'PICK_LOCK'),(90,'PLAY_BAGPIPE'),(91,'PLAY_LUTE'),(92,'PLAY_HARP'),(93,'PLAY_HORN'),(94,'PLAY_VIOLIN'),(95,'PRAY'),(96,'RANGED_BLACKPOWDER'),(97,'RANGED_BOW'),(98,'RANGED_CROSSBOW'),(99,'RANGED_ENGINEERING'),(100,'RANGED_ENTANGLING'),(101,'RANGED_EXPLOSIVES'),(102,'RANGED_SLING'),(103,'RANGED_THROWING'),(104,'RESEARCH'),(105,'SAIL_BARGE'),(106,'SAIL_CARAVEL'),(107,'SAIL_COG'),(108,'SAIL_FRIGATE'),(109,'SAIL_WOLFSHIP'),(110,'SECRET_SIGNS_GREY_ORDER'),(111,'SECRET_SIGNS_GUILD'),(112,'SECRET_SIGNS_RANGER'),(113,'SECRET_SIGNS_SCOUT'),(114,'SECRET_SIGNS_THIEF'),(115,'SECRET_SIGNS_VAGABOND'),(116,'SET_TRAP'),(117,'SLEIGHT_OF_HAND'),(118,'SWIM'),(119,'TRACK'),(120,'TRADE_APOTHECARY'),(121,'TRADE_CALLIGRAPHER'),(122,'TRADE_CHANDLER'),(123,'TRADE_CARPENTER'),(124,'TRADE_COOK'),(125,'TRADE_EMBALMER'),(126,'TRADE_SMITH'),(127,'TRADE_TANNER'),(128,'CHANNELLING_TZEENTCH');
 /*!40000 ALTER TABLE `skill` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -737,17 +1018,17 @@ DROP TABLE IF EXISTS `skirmish_character_entity`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `skirmish_character_entity` (
-                                             `id` bigint NOT NULL,
-                                             `description` varchar(255) DEFAULT NULL,
-                                             `is_right_handed` bit(1) DEFAULT NULL,
-                                             `name` varchar(255) DEFAULT NULL,
-                                             `advantage` int DEFAULT NULL,
-                                             `current_wounds` int DEFAULT NULL,
-                                             `is_dead` bit(1) DEFAULT NULL,
-                                             `skirmish_initiative` int DEFAULT NULL,
-                                             `group_column` varchar(255) DEFAULT NULL,
-                                             `sequence_number` int DEFAULT NULL,
-                                             PRIMARY KEY (`id`)
+  `id` bigint NOT NULL,
+  `description` varchar(255) DEFAULT NULL,
+  `is_right_handed` bit(1) DEFAULT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `advantage` int DEFAULT NULL,
+  `current_wounds` int DEFAULT NULL,
+  `is_dead` bit(1) DEFAULT NULL,
+  `skirmish_initiative` int DEFAULT NULL,
+  `group_column` varchar(255) DEFAULT NULL,
+  `sequence_number` int DEFAULT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -757,7 +1038,6 @@ CREATE TABLE `skirmish_character_entity` (
 
 LOCK TABLES `skirmish_character_entity` WRITE;
 /*!40000 ALTER TABLE `skirmish_character_entity` DISABLE KEYS */;
-INSERT INTO `skirmish_character_entity` VALUES (316,'Plemię Wykrzywionej Paszczy',_binary '','Goblin',0,14,_binary '\0',20,'Zielonoskórzy',15),(317,'Plemię Wykrzywionej Paszczy',_binary '','Goblin',0,14,_binary '\0',20,'Zielonoskórzy',14),(318,'Plemię Wykrzywionej Paszczy',_binary '','Goblin',0,14,_binary '\0',20,'Zielonoskórzy',13),(319,'Plemię Wykrzywionej Paszczy',_binary '','Goblin',0,14,_binary '\0',20,'Zielonoskórzy',12),(320,'Plemię Wykrzywionej Paszczy',_binary '','Goblin',0,14,_binary '\0',20,'Zielonoskórzy',11),(321,'Plemię Wykrzywionej Paszczy',_binary '','Goblin',0,14,_binary '\0',20,'Zielonoskórzy',10),(322,'Plemię Wykrzywionej Paszczy',_binary '','Goblin',0,14,_binary '\0',20,'Zielonoskórzy',9),(323,'Plemię Wykrzywionej Paszczy',_binary '','Goblin',0,14,_binary '\0',20,'Zielonoskórzy',8),(324,'Plemię Wykrzywionej Paszczy',_binary '','Goblin',0,14,_binary '\0',20,'Zielonoskórzy',7),(325,'Plemię Wykrzywionej Paszczy',_binary '','Goblin',0,14,_binary '\0',20,'Zielonoskórzy',6),(326,'Plemię Wykrzywionej Paszczy',_binary '','Goblin',0,14,_binary '\0',20,'Zielonoskórzy',5),(327,'Plemię Wykrzywionej Paszczy',_binary '','Goblin',0,14,_binary '\0',20,'Zielonoskórzy',4),(328,'Plemię Wykrzywionej Paszczy',_binary '','Goblin',0,14,_binary '\0',20,'Zielonoskórzy',3),(329,'Plemię Wykrzywionej Paszczy',_binary '','Goblin',0,14,_binary '\0',20,'Zielonoskórzy',2),(330,'Plemię Wykrzywionej Paszczy',_binary '','Goblin',0,14,_binary '\0',20,'Zielonoskórzy',1);
 /*!40000 ALTER TABLE `skirmish_character_entity` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -769,13 +1049,13 @@ DROP TABLE IF EXISTS `spell`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `spell` (
-                         `id` bigint NOT NULL AUTO_INCREMENT,
-                         `name` varchar(255) DEFAULT NULL,
-                         `spell_group_id` bigint NOT NULL,
-                         PRIMARY KEY (`id`),
-                         KEY `FKbb2xubljj6vho3vox4pwykmkw` (`spell_group_id`),
-                         CONSTRAINT `FKbb2xubljj6vho3vox4pwykmkw` FOREIGN KEY (`spell_group_id`) REFERENCES `spell_group` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `id` bigint NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) DEFAULT NULL,
+  `spell_group_id` bigint NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `FKbb2xubljj6vho3vox4pwykmkw` (`spell_group_id`),
+  CONSTRAINT `FKbb2xubljj6vho3vox4pwykmkw` FOREIGN KEY (`spell_group_id`) REFERENCES `spell_group` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -784,7 +1064,7 @@ CREATE TABLE `spell` (
 
 LOCK TABLES `spell` WRITE;
 /*!40000 ALTER TABLE `spell` DISABLE KEYS */;
-INSERT INTO `spell` VALUES (1,'BOLT',2),(2,'CORROSIVE_BLOOD',2),(3,'DOME',2),(4,'ENTANGLE',2),(5,'BOLT_OF_CORRUPTION',18),(6,'BLUE_FIRE_OF_TZEENTCH',17),(7,'PINK_FIRE_OF_TZEENTCH',17),(8,'POWER_OF_CHAOS',18),(9,'MINDFIRE',17);
+INSERT INTO `spell` VALUES (1,'BOLT',2),(2,'CORROSIVE_BLOOD',2),(3,'DOME',2),(4,'ENTANGLE',2),(5,'BOLT_OF_CORRUPTION',18),(6,'BLUE_FIRE_OF_TZEENTCH',17),(7,'PINK_FIRE_OF_TZEENTCH',17),(8,'POWER_OF_CHAOS',18),(9,'MINDFIRE',17),(10,'DART',1),(11,'MAGIC_FLAME',1),(12,'PURIFY_WATER',1),(13,'WARNING',1),(14,'SHOCK',1),(15,'DRAIN',1),(16,'SOUNDS',1),(17,'DAZZLE',1),(18,'OPEN_LOCK',1),(19,'LIGHT',1),(20,'EAVESDROP',1),(21,'ROT',1),(22,'MUNDANE_AURA',2),(23,'FLIGHT',2),(24,'AETHYRIC_ARMOUR',2),(25,'TELEPORT',2),(26,'CHAIN_ATTACK',2),(27,'DARK_VISION',2),(28,'BLAST',2);
 /*!40000 ALTER TABLE `spell` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -796,9 +1076,9 @@ DROP TABLE IF EXISTS `spell_group`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `spell_group` (
-                               `id` bigint NOT NULL AUTO_INCREMENT,
-                               `name` varchar(255) DEFAULT NULL,
-                               PRIMARY KEY (`id`)
+  `id` bigint NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -820,10 +1100,10 @@ DROP TABLE IF EXISTS `talent`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `talent` (
-                          `id` bigint NOT NULL AUTO_INCREMENT,
-                          `max_level` varchar(255) DEFAULT NULL,
-                          `name` varchar(255) DEFAULT NULL,
-                          PRIMARY KEY (`id`)
+  `id` bigint NOT NULL AUTO_INCREMENT,
+  `max_level` varchar(255) DEFAULT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=221 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -845,30 +1125,30 @@ DROP TABLE IF EXISTS `weapon`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `weapon` (
-                          `id` bigint NOT NULL AUTO_INCREMENT,
-                          `damage` int DEFAULT NULL,
-                          `encumbrance` varchar(255) DEFAULT NULL,
-                          `is_using_strength` bit(1) DEFAULT NULL,
-                          `is_using_strength_in_range` bit(1) DEFAULT NULL,
-                          `name` varchar(255) NOT NULL,
-                          `name_translation` varchar(255) NOT NULL,
-                          `price` varchar(255) DEFAULT NULL,
-                          `weapon_range` float DEFAULT NULL,
-                          `availability_id` bigint NOT NULL,
-                          `weapon_group_id` bigint NOT NULL,
-                          `weapon_reach_id` bigint NOT NULL,
-                          `weapon_type_id` bigint NOT NULL,
-                          PRIMARY KEY (`id`),
-                          UNIQUE KEY `UK_m3g4t18ism1x7p997f9ustdu7` (`name`),
-                          UNIQUE KEY `UK_im2966n1lf6vmqt578ibtrcah` (`name_translation`),
-                          KEY `FKf09qvu7ulqpj06jdy82l1ysih` (`availability_id`),
-                          KEY `FKb0c92qm8bhswbxrt0rrjfisa1` (`weapon_group_id`),
-                          KEY `FKi3sgoa8cgvxlpj59kkamws5yu` (`weapon_reach_id`),
-                          KEY `FK3t2hcfewrcv6ielmtgbhrib23` (`weapon_type_id`),
-                          CONSTRAINT `FK3t2hcfewrcv6ielmtgbhrib23` FOREIGN KEY (`weapon_type_id`) REFERENCES `weapon_type` (`id`),
-                          CONSTRAINT `FKb0c92qm8bhswbxrt0rrjfisa1` FOREIGN KEY (`weapon_group_id`) REFERENCES `weapon_group` (`id`),
-                          CONSTRAINT `FKf09qvu7ulqpj06jdy82l1ysih` FOREIGN KEY (`availability_id`) REFERENCES `availability` (`id`),
-                          CONSTRAINT `FKi3sgoa8cgvxlpj59kkamws5yu` FOREIGN KEY (`weapon_reach_id`) REFERENCES `weapon_reach` (`id`)
+  `id` bigint NOT NULL AUTO_INCREMENT,
+  `damage` int DEFAULT NULL,
+  `encumbrance` varchar(255) DEFAULT NULL,
+  `is_using_strength` bit(1) DEFAULT NULL,
+  `is_using_strength_in_range` bit(1) DEFAULT NULL,
+  `name` varchar(255) NOT NULL,
+  `name_translation` varchar(255) NOT NULL,
+  `price` varchar(255) DEFAULT NULL,
+  `weapon_range` float DEFAULT NULL,
+  `availability_id` bigint NOT NULL,
+  `weapon_group_id` bigint NOT NULL,
+  `weapon_reach_id` bigint NOT NULL,
+  `weapon_type_id` bigint NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `UK_m3g4t18ism1x7p997f9ustdu7` (`name`),
+  UNIQUE KEY `UK_im2966n1lf6vmqt578ibtrcah` (`name_translation`),
+  KEY `FKf09qvu7ulqpj06jdy82l1ysih` (`availability_id`),
+  KEY `FKb0c92qm8bhswbxrt0rrjfisa1` (`weapon_group_id`),
+  KEY `FKi3sgoa8cgvxlpj59kkamws5yu` (`weapon_reach_id`),
+  KEY `FK3t2hcfewrcv6ielmtgbhrib23` (`weapon_type_id`),
+  CONSTRAINT `FK3t2hcfewrcv6ielmtgbhrib23` FOREIGN KEY (`weapon_type_id`) REFERENCES `weapon_type` (`id`),
+  CONSTRAINT `FKb0c92qm8bhswbxrt0rrjfisa1` FOREIGN KEY (`weapon_group_id`) REFERENCES `weapon_group` (`id`),
+  CONSTRAINT `FKf09qvu7ulqpj06jdy82l1ysih` FOREIGN KEY (`availability_id`) REFERENCES `availability` (`id`),
+  CONSTRAINT `FKi3sgoa8cgvxlpj59kkamws5yu` FOREIGN KEY (`weapon_reach_id`) REFERENCES `weapon_reach` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=107 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -890,9 +1170,9 @@ DROP TABLE IF EXISTS `weapon_group`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `weapon_group` (
-                                `id` bigint NOT NULL AUTO_INCREMENT,
-                                `name` varchar(255) DEFAULT NULL,
-                                PRIMARY KEY (`id`)
+  `id` bigint NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -914,9 +1194,9 @@ DROP TABLE IF EXISTS `weapon_quality`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `weapon_quality` (
-                                  `id` bigint NOT NULL AUTO_INCREMENT,
-                                  `name` varchar(255) DEFAULT NULL,
-                                  PRIMARY KEY (`id`)
+  `id` bigint NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=50 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -938,15 +1218,15 @@ DROP TABLE IF EXISTS `weapon_quality_value`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `weapon_quality_value` (
-                                        `id` bigint NOT NULL AUTO_INCREMENT,
-                                        `value` varchar(255) DEFAULT NULL,
-                                        `weapon_id` bigint NOT NULL,
-                                        `weapon_quality_id` bigint NOT NULL,
-                                        PRIMARY KEY (`id`),
-                                        KEY `FKiga1ti68058b3a8db6f3gccdp` (`weapon_id`),
-                                        KEY `FKda0tc27g64fcyhcowkmq1u1fr` (`weapon_quality_id`),
-                                        CONSTRAINT `FKda0tc27g64fcyhcowkmq1u1fr` FOREIGN KEY (`weapon_quality_id`) REFERENCES `weapon_quality` (`id`),
-                                        CONSTRAINT `FKiga1ti68058b3a8db6f3gccdp` FOREIGN KEY (`weapon_id`) REFERENCES `weapon` (`id`)
+  `id` bigint NOT NULL AUTO_INCREMENT,
+  `value` varchar(255) DEFAULT NULL,
+  `weapon_id` bigint NOT NULL,
+  `weapon_quality_id` bigint NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `FKiga1ti68058b3a8db6f3gccdp` (`weapon_id`),
+  KEY `FKda0tc27g64fcyhcowkmq1u1fr` (`weapon_quality_id`),
+  CONSTRAINT `FKda0tc27g64fcyhcowkmq1u1fr` FOREIGN KEY (`weapon_quality_id`) REFERENCES `weapon_quality` (`id`),
+  CONSTRAINT `FKiga1ti68058b3a8db6f3gccdp` FOREIGN KEY (`weapon_id`) REFERENCES `weapon` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=285 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -968,9 +1248,9 @@ DROP TABLE IF EXISTS `weapon_reach`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `weapon_reach` (
-                                `id` bigint NOT NULL AUTO_INCREMENT,
-                                `name` varchar(255) DEFAULT NULL,
-                                PRIMARY KEY (`id`)
+  `id` bigint NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -992,9 +1272,9 @@ DROP TABLE IF EXISTS `weapon_type`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `weapon_type` (
-                               `id` bigint NOT NULL AUTO_INCREMENT,
-                               `name` varchar(255) DEFAULT NULL,
-                               PRIMARY KEY (`id`)
+  `id` bigint NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -1017,4 +1297,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-03-13 15:26:19
+-- Dump completed on 2023-04-03 16:41:45
