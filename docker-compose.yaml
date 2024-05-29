@@ -2,13 +2,17 @@ services:
   ProjectRPG:
     container_name: projectrpg
     image: teuspolec/projectrpg
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:mysql://projectrpg_db:3306/projectrpg?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true
+      - SPRING_DATASOURCE_USERNAME=ProjectRPG
+      - SPRING_DATASOURCE_PASSWORD=ProjectRPG
     ports:
       - "8080:8080"
     networks:
       - ProjectRPG-network
     depends_on:
-      - mysqldb-server
-    restart: always
+      - projectrpg_db
+    restart: on-failure
 
   ProjectRPG_angular:
     container_name: projectrpg_angular
@@ -18,15 +22,15 @@ services:
     networks:
       - ProjectRPG-network
     depends_on:
-      - mysqldb-server
-    restart: always
+      - projectrpg_db
+    restart: on-failure
 
-  mysqldb-server:
+  projectrpg_db:
     container_name: mysqldb-server
     image: mysql
     ports:
       - 3306:3306
-    restart: always
+    restart: on-failure
     volumes:
       - ./database:/docker-entrypoint-initdb.d
     environment:
@@ -40,3 +44,4 @@ services:
 
 networks:
   ProjectRPG-network:
+    driver: bridge
